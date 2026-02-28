@@ -17,8 +17,8 @@ import { FloatingCTA } from '@/components/ui/FloatingCTA';
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
 import {Pricing} from "@/components/sections/Pricing"
 import Testimonials from "@/components/sections/Testimonials"
-
-
+import {FAQs} from "@/components/sections/FAQs"
+import { ComparisonTable } from "@/components/sections/ComparisonTable"
 
 
 
@@ -352,6 +352,12 @@ export default function App() {
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* FAQs */}
+      <FAQs />
+
+      {/* Comparison Table */}
+      <ComparisonTable />
       {/* CTA Section */}
       <MeetechCTA />
 

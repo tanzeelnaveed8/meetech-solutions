@@ -104,14 +104,14 @@ export const Pricing = () => {
                </section>
 
                {/* --- PRICING GRID / COMPARISON --- */}
-               <section className="px--x pb-section">
+               <section className="px--x pb-24">
                     <div className="max-w-7xl mx-auto">
-                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
                               {Object.entries(pricingData).map(([key, plan]) => (
                                    <div
                                         key={key}
-                                        className={`relative group flex flex-col p-8 rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${plan.isPopular
+                                        className={`relative w-full md:w-3/4 lg:w-full mx-auto group flex flex-col p-8 rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${plan.isPopular
                                                   ? 'bg-bg-surface border-accent ring-2 ring-accent/20 scale-105 z-10'
                                                   : 'bg-bg-surface border-border-default'
                                              }`}

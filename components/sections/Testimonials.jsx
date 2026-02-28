@@ -105,20 +105,21 @@ const Testimonials = () => {
                     </button>
 
                     {/* Testimonial Card */}
-                    <div className="relative overflow-hidden h-150 md:h-[300px]">
+                    <div className="relative overflow-hidden h-150 md:h-120 lg:h-[300px]">
                          {testimonials.map((t, idx) => (
                               <div
                                    key={t.id}
-                                   className={`absolute inset-0 transition-all duration-1000 ease-in-out transform flex flex-col md:flex-row gap-10 p-10 rounded-3xl border border-border-default bg-bg-surface shadow-sm ${idx === activeIndex
+                                   className={`absolute inset-0 transition-all duration-1000 ease-in-out transform flex flex-col lg:flex-row gap-10 p-6 md:p-10 rounded-3xl border border-border-default bg-bg-surface shadow-sm ${idx === activeIndex
                                              ? 'opacity-100 translate-x-0 scale-100'
                                              : 'opacity-0 translate-x-8 scale-95 pointer-events-none'
                                         }`}
                               >
                                    {/* Author Info Column */}
-                                   <div className="md:w-1/3 flex flex-col items-center md:items-start space-y-3">
-                                        <div className="w-20 h-20 rounded-2xl bg-accent-muted flex items-center justify-center text-accent">
-                                             <Quote size={32} />
+                                   <div className=" w-full lg:w-1/3 flex lg:flex-col items-start space-y-3">
+                                        <div className=" w-14 md:w-20  h-14 md:h-20 rounded-2xl bg-accent-muted flex items-center justify-center text-accent">
+                                             <Quote size={30} />
                                         </div>
+                                        <div className=' ml-4'>
                                         <div className="pt-4">
                                              <h3 className="text-headline font-bold text-text-primary">{t.author}</h3>
                                              <p className="text-ui font-semibold text-accent">{t.title}</p>
@@ -132,10 +133,12 @@ const Testimonials = () => {
                                                   </span>
                                              ))}
                                         </div>
+
+                                        </div>
                                    </div>
 
                                    {/* Quote & Metrics Column */}
-                                   <div className="md:w-2/3 flex flex-col justify-between">
+                                   <div className=" w-full lg:w-2/3 flex flex-col justify-between">
                                         <p className="text-headline font-medium italic text-text-primary leading-relaxed mb-8">
                                              "{t.quote}"
                                         </p>
