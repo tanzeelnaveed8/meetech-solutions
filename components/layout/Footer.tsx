@@ -48,23 +48,30 @@ const footerLinks: FooterGroup[] = [
       { name: "Mobile Apps", href: "/services/mobile-apps" },
       { name: "Startup MVPs", href: "/services/startup-mvps" },
       { name: "Custom Software", href: "/services/custom-software" },
+      { name: "WhatsApp Automation", href: "/services/whatsApp-automation" },
+      { name: "AI - Driven Tools", href: "/services/ai-tools" },
+      { name: "Blockchain Integration", href: "/services/blockchain" },
+      { name: "Cybersecurity & Auditing", href: "/services/cybersecurity" },
+      { name: "Social Media & Meta Ads", href: "/services/social-media-meta-ads" },
     ],
   },
-  {
-    title: "Solutions",
-    links: [
-      { name: "Enterprise", href: "/solutions" },
-      { name: "Startups", href: "/solutions" },
-      { name: "MVP Development", href: "/solutions" },
-      { name: "Consulting", href: "/solutions" },
-    ],
-  },
+  // {
+  //   title: "Solutions",
+  //   links: [
+  //     { name: "Enterprise", href: "/solutions" },
+  //     { name: "Startups", href: "/solutions" },
+  //     { name: "MVP Development", href: "/solutions" },
+  //     { name: "Consulting", href: "/solutions" },
+  //   ],
+  // },
   {
     title: "Legal",
     links: [
       { name: "Privacy Policy", href: "/legal/privacy" },
       { name: "Terms of Service", href: "/legal/terms_of_service" },
-      { name: "Cookie Policy", href: "/legal/cookie" },
+      { name: "Pricing", href: "/pricing" },
+      { name: "Blogs", href: "/blogs" },
+      { name: "Security", href: "/security" },
     ],
   },
 ];
@@ -73,14 +80,14 @@ const contactInfo = [
   {
     icon: <Mail size={18} />,
     label: "Email",
-    value: "meetechdevelopment@gmail.com",
-    href: "mailto:meetechdevelopment@gmail.com",
+    value: "hello@meetechsolutions.com",
+    href: "mailto:hello@meetechsolutions.com",
   },
   {
     icon: <Phone size={18} />,
     label: "Phone",
-    value: "+1 334 926 9060",
-    href: "tel:+1 334 926 9060",
+    value: "1 (800) 000-0000",
+    href: "tel:1 (800) 000-0000",
   },
   {
     icon: <MapPin size={18} />,
@@ -127,7 +134,10 @@ const Footer: React.FC = () => {
             </Link>
 
             <p className="text-text-muted text-sm leading-relaxed max-w-sm">
-              We design and engineer scalable digital products with precision, performance, and long-term vision. Building the future, one line of code at a time.
+              <span className=" font-bold text-text-primary text-lg">Meetech Solutions </span>
+              complete digital transformation for global businesses. Operating in 26
+              countries with proven solutions for WhatsApp automation, AI tools, blockchain, cybersecurity,
+              and social media marketing.
             </p>
 
             {/* Social Icons */}
@@ -156,7 +166,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10">
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
             {footerLinks.map((group) => (
               <div key={group.title} className="space-y-5 ">
                 <h4 className="text-text-primary text-sm font-bold uppercase tracking-wider">
@@ -219,7 +229,8 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border-default pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-muted text-xs font-medium tracking-wide">
-            © {new Date().getFullYear()} Meetech Development. All rights reserved.
+            © {new Date().getFullYear()} Meetech Solutions. All rights reserved. Complete digital transformation for businesses
+            worldwide.
           </p>
 
           <div className="flex items-center gap-6">

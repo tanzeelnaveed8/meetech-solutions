@@ -13,53 +13,75 @@ import {
      Lock,
      Globe,
      BarChart3,
+     TrendingUp,
+     Users,
+     Target, DollarSign
 } from "lucide-react";
 
 
 // WHY MEETECH DATA
 const WHY_MEETECH = [
      {
-          title: "Founder-Led Engineering",
+          title: "Affordable Excellence",
           description:
-               "Every architectural decision is vetted by leadership. We engineer for ten-year scalability, not six-month stability.",
-          icon: <UserCheck className="w-5 h-5" />,
-          stat: "100% Oversight",
+               "Global agencies charge $5,000–20,000 per month. We deliver the same quality for $300–2,000 per month. No hidden fees. No long-term contracts. Cancel anytime.",
+          icon: <DollarSign className="w-5 h-5" />,
+          stat: "70% Cheaper",
           image:
-               "https://i.pinimg.com/736x/32/72/fd/3272fdbde5f3f2a613b4bfa3bc3f9135.jpg",
-          tag: "Integrity",
+               "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
+          tag: "Affordability",
      },
      {
-          title: "Sovereign In-House Team",
+          title: "All-in-One Platform",
           description:
-               "Zero outsourcing. Internal teams in Dubai and the US ensure accountability and data sovereignty.",
-          icon: <Users2 className="w-5 h-5" />,
-          stat: "No Freelancers",
+               "Instead of managing five different vendors, get everything from one trusted partner. Seamless integration, single point of contact, and unified reporting.",
+          icon: <Target className="w-5 h-5" />,
+          stat: "5-in-1 Services",
           image:
-               "https://i.pinimg.com/736x/43/d4/e4/43d4e494f01c6bc41b56cfc4305007b7.jpg",
-          tag: "Sovereignty",
+               "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+          tag: "Convenience",
      },
      {
-          title: "Deterministic Delivery",
+          title: "Lightning-Fast Deployment",
           description:
-               "Milestone-driven execution with real-time visibility into production pipelines and Git deployments.",
-          icon: <CalendarClock className="w-5 h-5" />,
-          stat: "98% On-Time",
+               "Traditional agencies take 2–4 weeks. We get you live in 24–48 hours. Faster results, lower risk, and immediate business impact.",
+          icon: <Zap className="w-5 h-5" />,
+          stat: "24–48 Hours",
           image:
-               "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
-          tag: "Precision",
+               "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
+          tag: "Speed",
      },
      {
-          title: "Enterprise Interoperability",
+          title: "Expert Team",
           description:
-               "SOC2 & GDPR-aligned systems engineered for global ecosystems and complex migrations.",
-          icon: <ShieldCheck className="w-5 h-5" />,
-          stat: "Global Ready",
+               "Our team includes Google Ads experts, Meta Ads specialists, LinkedIn professionals, blockchain developers, and cybersecurity engineers — each a master of their craft.",
+          icon: <Users className="w-5 h-5" />,
+          stat: "22 Specialists",
           image:
-               "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-          tag: "Compliance",
+               "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800",
+          tag: "Expertise",
+     },
+     {
+          title: "Proven Results",
+          description:
+               "Real customers. Real measurable outcomes. WhatsApp automation delivers 3–4x ROI, AI tools 15–20x ROI, and social media campaigns 5–10x ROI. We focus on results that matter.",
+          icon: <TrendingUp className="w-5 h-5" />,
+          stat: "3–10x ROI",
+          image:
+               "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+          tag: "Performance",
+     },
+     {
+          title: "Global Presence",
+          description:
+               "Operating across UAE, USA, Pakistan, India, Bangladesh, and 21+ additional countries. We combine local expertise with global scale and timezone-aligned support.",
+          icon: <Globe className="w-5 h-5" />,
+          stat: "26+ Countries",
+          image:
+               "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800",
+          tag: "Global Reach",
      },
 ];
-
 
 
 // MAIN APP
@@ -95,13 +117,14 @@ const WhyMeetechh = () => {
                                    </div>
 
                                    <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] tracking-tighter text-[var(--text-primary)]">
-                                        Technical <br /> Authority
+                                        WHY <br /> meetech
 
                                    </h1>
 
                                    <div className="space-y-6">
                                         <p className="text-xl leading-relaxed max-w-md text-[var(--text-muted)]">
-                                             We don’t just build apps   we engineer scalable digital assets designed for a decade of performance.
+                                             We're 70% cheaper than competitors while delivering enterprise-quality results. Here's what
+                                             makes us different.
                                         </p>
 
                                         <div className="grid grid-cols-2 gap-4 pt-8">

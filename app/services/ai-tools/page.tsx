@@ -1,407 +1,386 @@
-"use client";
 
-import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from "framer-motion";
+"use client"
+import React, { useState, useEffect } from 'react';
 import {
-     ShoppingBag,
-     CreditCard,
-     Truck,
-     ShieldCheck,
-     BarChart3,
-     Users,
-     Search,
-     Smartphone,
-     ChevronRight,
+     MessageSquare,
+     MessageCircle,
      CheckCircle2,
-     Package,
-     Store,
-     Zap,
-     Globe,
-} from "lucide-react";
-import NeuralBackground from "@/components/background/NeuralBackground";
-import { cubicBezier } from "framer-motion";
+     Clock,
+     Zap,ShoppingCart,
+     Calendar, ArrowUpRight,
+     Users,
+     BarChart3,
+     Settings,
+     TrendingDown,
+     TrendingUp,
+     Brain,
+     Database,
+     Cloud,Landmark,Factory,
+     Truck,
+     Stethoscope,
+     Headphones,
+     Rocket
+} from 'lucide-react';
+import NeuralBackground from '@/components/background/NeuralBackground';
+import Link from 'next/link';
+import AiMicrochipAnimation from "./AiMicrochipAnimation"
 
+const App = () => {
+     const [activeTab, setActiveTab] = useState('Restaurants');
 
-const TECH_ITEMS = [
-     { name: "OpenAI", icon: <Zap className="w-8 h-8" /> },
-     { name: "LangChain", icon: <Globe className="w-8 h-8" /> },
-     { name: "Python", icon: <Package className="w-8 h-8" /> },
-     { name: "TensorFlow", icon: <BarChart3 className="w-8 h-8" /> },
-     { name: "PyTorch", icon: <ShieldCheck className="w-8 h-8" /> },
-     { name: "FastAPI", icon: <CreditCard className="w-8 h-8" /> },
-     { name: "Redis", icon: <Users className="w-8 h-8" /> },
-     { name: "Vector DBs", icon: <Search className="w-8 h-8" /> },
-];
+     const features = [
+          { icon: <Zap className="w-6 h-6" />, tag: "Automation", title: "Multi-Channel Chatbots", desc: "Deploy AI chatbots across website and messaging platforms to handle inquiries 24/7." },
+          { icon: <BarChart3 className="w-6 h-6" />, tag: "Forecasting", title: "Predictive Analytics", desc: "Leverage data-driven forecasting to anticipate trends, demand, and customer behavior." },
+          { icon: <Settings className="w-6 h-6" />, tag: "Efficiency", title: "Robotic Process Automation", desc: "Automate repetitive workflows to reduce manual effort and increase operational speed." },
+          { icon: <Brain className="w-6 h-6" />, tag: "AI Models", title: "Machine Learning", desc: "Custom ML models that continuously learn and improve performance over time." },
+          { icon: <Database className="w-6 h-6" />, tag: "Insights", title: "Data Processing", desc: "Transform raw data into actionable insights for smarter business decisions." },
+          { icon: <MessageSquare className="w-6 h-6" />, tag: "Intelligence", title: "NLP & Computer Vision", desc: "Understand text, speech, and images using advanced AI-powered analysis." },
+     ];
 
-type IconBoxProps = {
-     name: string;
-     icon: React.ReactNode;
-};
+     const results = [
+          { label: "Operational Efficiency", metric: "30-40%", unit: "cost reduction", icon: <TrendingDown /> },
+          { label: "Revenue Growth", metric: "15-20%", unit: "increase", icon: <TrendingUp /> },
+          { label: "Customer Support", metric: "40%", unit: "lower support costs", icon: <Headphones /> },
+          { label: "Business Scaling", metric: "Faster", unit: "growth without hiring", icon: <Rocket /> },
+     ];
 
-const IconBox: React.FC<IconBoxProps> = ({ name, icon }) => (
-     <div className="flex flex-col items-center gap-3 group">
-          <div
-               className="w-16 h-16 flex items-center justify-center rounded-2xl
-      bg-bg-subtle border border-border-subtle
-      group-hover:border-accent group-hover:bg-accent-muted
-      transition-all duration-300"
-          >
-               <div className="text-text-muted group-hover:text-accent transition-colors">
-                    {icon}
-               </div>
-          </div>
-          <span className="text-xs font-medium text-text-muted group-hover:text-text-primary transition-colors">
-               {name}
-          </span>
-     </div>
-);
-
-
-const WHY_FIRST_CHOICE_SERVICES = [
-     {
-          id: "strategy",
-          title: "AI Strategy & Consulting",
-          description:
-               "We design intelligent roadmaps that align automation, machine learning, and data systems with your business objectives, ensuring measurable ROI.",
-          boldPhrase: "automation, machine learning, and data systems",
-          bullets: [
-               "AI Opportunity Analysis",
-               "Workflow Automation Planning",
-               "Use-Case Validation",
-               "Architecture Design",
-               "Scalability Planning",
-          ],
-     },
-     {
-          id: "chatbots",
-          title: "AI Assistants & Chatbots",
-          description:
-               "We build conversational systems that understand users, resolve queries, and automate support using natural language intelligence.",
-          boldPhrase: "conversational systems that understand users",
-          bullets: [
-               "Customer Support Bots",
-               "Sales Assistants",
-               "Multilingual NLP",
-               "Context Memory",
-               "CRM Integrations",
-          ],
-     },
-     {
-          id: "analytics",
-          title: "Predictive Analytics",
-          description:
-               "Transform raw data into actionable insights with predictive intelligence that forecasts trends and supports smarter decisions.",
-          boldPhrase: "predictive intelligence that forecasts trends",
-          bullets: [
-               "Demand Forecasting",
-               "Behavior Prediction",
-               "Risk Detection",
-               "Data Modeling",
-               "Insight Dashboards",
-          ],
-     },
-     {
-          id: "vision",
-          title: "Computer Vision",
-          description:
-               "Enable machines to interpret visual data, automate detection, and improve operational efficiency through AI-powered image analysis.",
-          boldPhrase: "interpret visual data",
-          bullets: [
-               "Object Detection",
-               "Facial Recognition",
-               "Quality Inspection",
-               "Image Classification",
-               "Video Intelligence",
-          ],
-     },
-     {
-          id: "automation",
-          title: "Workflow Automation",
-          description:
-               "We automate repetitive tasks and complex processes using AI agents that reduce costs, increase speed, and improve accuracy.",
-          boldPhrase: "AI agents that reduce costs",
-          bullets: [
-               "Process Automation",
-               "Document Parsing",
-               "Smart Scheduling",
-               "Data Extraction",
-               "Decision Engines",
-          ],
-     },
-     {
-          id: "deployment",
-          title: "Model Deployment & Scaling",
-          description:
-               "Deploy trained AI models into production environments with high availability, monitoring, and continuous learning pipelines.",
-          boldPhrase: "production environments with high availability",
-          bullets: [
-               "Model Hosting",
-               "API Integration",
-               "Performance Monitoring",
-               "Auto Scaling",
-               "Continuous Training",
-          ],
-     },
-];
-
-const HOW_WE_SERVE = [
-     {
-          title: "Intelligent Automation",
-          desc: "We design systems that automate decisions, processes, and workflows using adaptive AI logic.",
-          icon: <Zap className="w-6 h-6" />,
-     },
-     {
-          title: "Human-Like Interaction",
-          desc: "AI assistants that understand context, intent, and conversation for natural user experiences.",
-          icon: <Users className="w-6 h-6" />,
-     },
-     {
-          title: "Scalable AI Infrastructure",
-          desc: "Cloud-ready architecture built to scale models, datasets, and workloads without performance loss.",
-          icon: <Globe className="w-6 h-6" />,
-     },
-     {
-          title: "Seamless Integrations",
-          desc: "We connect AI engines with CRMs, apps, APIs, and databases for unified intelligence.",
-          icon: <Smartphone className="w-6 h-6" />,
-     },
-     {
-          title: "Secure AI Systems",
-          desc: "Enterprise-grade protection ensures your data, models, and predictions remain safe.",
-          icon: <ShieldCheck className="w-6 h-6" />,
-     },
-     {
-          title: "Continuous Learning",
-          desc: "Our AI solutions evolve with feedback, improving accuracy and performance over time.",
-          icon: <BarChart3 className="w-6 h-6" />,
-     },
-];
-
-export default function Ecommerce() {
-     const reduce = useReducedMotion();
-     const ease = cubicBezier(0.25, 0.46, 0.45, 0.94);
-     const duration = 0.5;
-     const [selectedServiceId, setSelectedServiceId] = useState("strategy");
-
-     const selected = useMemo(
-          () => WHY_FIRST_CHOICE_SERVICES.find((s) => s.id === selectedServiceId) ?? WHY_FIRST_CHOICE_SERVICES[0],
-          [selectedServiceId]
-     );
-
-     const { scrollY } = useScroll();
-     const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-     const scale = useTransform(scrollY, [0, 400], [1, 0.98]);
+     const targetIndustries = [
+          { name: "E-commerce Businesses", icon: <ShoppingCart className="w-5 h-5" /> },
+          { name: "SaaS Companies", icon: <Cloud className="w-5 h-5" /> },
+          { name: "Financial Services", icon: <Landmark className="w-5 h-5" /> },
+          { name: "Manufacturing", icon: <Factory className="w-5 h-5" /> },
+          { name: "Healthcare Providers", icon: <Stethoscope className="w-5 h-5" /> },
+          { name: "Logistics Companies", icon: <Truck className="w-5 h-5" /> },
+     ];
 
      return (
-          <div className="relative min-h-screen w-full bg-bg-page text-text-body selection:bg-accent-muted selection:text-text-inverse overflow-hidden font-sans transition-colors duration-500">
+          <div className="relative min-h-screen bg-bg-page text-text-body font-sans selection:bg-accent selection:text-text-inverse">
                {/* Decorative Grid */}
-               <div
-                    className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-default)_1px,transparent_1px),
-        linear-gradient(to_bottom,var(--border-default)_1px,transparent_1px)]
-        bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]
-        opacity-30 pointer-events-none"
-               />
+               <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-default)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-default)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
-               {/* Hero Background */}
-               <NeuralBackground />
+<NeuralBackground/>
+               {/* --- HERO SECTION --- */}
+               <section className="relative pt-20 pb-16 px-page-x overflow-hidden">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px]  blur-[120px] rounded-full -z-10" />
 
-               {/* Atmospheric Radial Blur */}
-               <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 h-[600px] w-[900px] bg-accent/5 blur-[140px] rounded-full pointer-events-none" />
+                    <div className="max-w-5xl mx-auto text-center space-y-6">
+                         
 
-               {/* Hero Section */}
-               <motion.section
-                    style={{ opacity, scale }}
-                    className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-6 py-20 text-center"
-               >
-                    <motion.h1
-                         initial={{ opacity: 0, y: 20 }}
-                         animate={{ opacity: 1, y: 0 }}
-                         transition={{ duration: 0.8 }}
-                         className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 text-text-primary"
-                    >
-                         AI Tools <span className="text-accent">Excellence</span>                    </motion.h1>
+                         <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+                              AI-Driven<span className="text-accent"> Tools</span> 
+                         </h1>
 
-                    <motion.p
-                         initial={{ opacity: 0, y: 20 }}
-                         animate={{ opacity: 1, y: 0 }}
-                         transition={{ duration: 0.8, delay: 0.2 }}
-                         className="max-w-2xl text-lg md:text-xl text-text-muted leading-relaxed"
-                    >
-                         Build intelligent systems that automate processes, analyze data, and enhance decision-making with powerful AI-driven solutions.
-                    </motion.p>
+                         <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm">
+Automate processes, predict trends, gain intelligent insights                         </p>
 
-                    <motion.nav
-                         initial={{ opacity: 0, y: 20 }}
-                         animate={{ opacity: 1, y: 0 }}
-                         transition={{ duration: 0.8, delay: 0.4 }}
-                         className="mt-10 flex flex-wrap items-center justify-center gap-2 text-sm"
-                    >
-                         <span className="rounded-lg px-3 py-1.5 font-medium text-text-muted hover:text-accent cursor-pointer">
-                              Home
-                         </span>
-                         <span className="text-text-muted">/</span>
-                         <span className="rounded-lg px-3 py-1.5 font-medium text-text-muted hover:text-accent cursor-pointer">
-                              Services
-                         </span>
-                         <span className="text-text-muted">/</span>
-                         <span className="rounded-lg px-3 py-1.5 font-semibold text-accent">AI Tools</span>
-                    </motion.nav>
-               </motion.section>
-
-               {/* Scroll Indicator */}
-               <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40"
-               >
-                    <span className="text-[9px] font-black tracking-[0.4em] uppercase text-text-muted">Explore AI</span>
-                    <div className="w-[1.5px] h-12 bg-gradient-to-b from-accent via-accent/50 to-transparent rounded-full" />
-               </motion.div>
-
-               {/* Content Wrapper */}
-               <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
-                    {/* Technologies Section */}
-                    <motion.section
-                         className="border-t border-border-subtle py-14 md:py-20"
-                         initial="hidden"
-                         whileInView="visible"
-                         viewport={{ once: true, margin: "-40px" }}
-                         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
-                    >
-                         <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl text-text-primary">
-                              AI Technology <span className="text-accent">Stack</span>
-                         </h2>
-                         <div className="mx-auto mt-12 grid grid-cols-4 gap-x-6 gap-y-12 sm:grid-cols-4 md:grid-cols-8">
-                              {TECH_ITEMS.map((tech) => (
-                                   <motion.div
-                                        key={tech.name}
-                                        variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
-                                        transition={{ duration, ease }}
-                                   >
-                                        <IconBox {...tech} />
-                                   </motion.div>
-
-                              ))}
-                         </div>
-                    </motion.section>
-
-                    {/* Why Choice Section */}
-                    <motion.section
-                         className="border-t border-border-subtle py-12 md:py-16"
-                         initial="hidden"
-                         whileInView="visible"
-                         viewport={{ once: true, margin: "-40px" }}
-                    >
-                         <h2 className="text-xl font-bold tracking-tight text-text-primary md:text-3xl mb-4">
-                              Why Choose Us For AI Development?                         </h2>
-                         <motion.p className="mb-10 max-w-3xl text-text-muted text-base leading-relaxed">
-                              We don’t just build models   we engineer intelligent ecosystems. By combining data science, automation, and scalable architecture, we deliver AI systems that drive real business outcomes.
-                         </motion.p>
-
-                         <div className="grid gap-6 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10">
-                              {/* Sidebar Navigation */}
-                              <nav className="grid grid-cols-2 gap-3 lg:grid-cols-1">
-                                   {WHY_FIRST_CHOICE_SERVICES.map((s) => {
-                                        const isActive = selectedServiceId === s.id;
-                                        return (
-                                             <motion.button
-                                                  key={s.id}
-                                                  onClick={() => setSelectedServiceId(s.id)}
-                                                  whileHover={{ x: isActive ? 0 : 5 }}
-                                                  className={`flex items-center justify-between rounded-xl border px-4 py-4 text-left text-sm font-semibold transition-all duration-300 ${isActive
-                                                       ? "border-accent bg-accent text-text-inverse shadow-[0_0_20px_rgba(37,99,235,0.3)]"
-                                                       : "border-border-subtle bg-bg-subtle text-text-muted hover:border-accent hover:bg-accent-muted"
-                                                       }`}
-                                             >
-                                                  {s.title}
-                                                  {isActive && <ChevronRight className="w-4 h-4" />}
-                                             </motion.button>
-                                        );
-                                   })}
-                              </nav>
-
-                              {/* Content Display */}
-                              <motion.div
-                                   layout
-                                   className="relative overflow-hidden rounded-2xl border-2 border-border-subtle border-l-accent border-t-accent bg-bg-card"
+                         <p  className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
+                              Artificial intelligence can handle 80% of your repetitive work. From automating
+                              customer onboarding to predicting which customers might leave, our AI tools eliminate manual
+                              processes, reduce costs, and unlock insights hidden in your data.
+                         </p>
+                         {/* Breadcrumb */}
+                         <nav
+                              // initial={{ opacity: 0, y: 20 }}
+                              // animate={{ opacity: 1, y: 0 }}
+                              // transition={{ duration: 0.8, delay: 0.4 }}
+                              className="mt-10 flex flex-wrap items-center justify-center gap-2 text-sm"
+                              aria-label="Breadcrumb"
+                         >
+                              <Link
+                                   href="/"
+                                   className="rounded-lg px-3 py-1.5 font-medium text-text-muted transition-all hover:text-accent"
                               >
-                                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" aria-hidden />
-                                   <div className="relative p-6 md:p-10">
-                                        <AnimatePresence mode="wait">
-                                             <motion.div
-                                                  key={selectedServiceId}
-                                                  initial={{ opacity: 0, x: 16 }}
-                                                  animate={{ opacity: 1, x: 0 }}
-                                                  exit={{ opacity: 0, x: -12 }}
-                                                  transition={{ duration: 0.3, ease }}
-                                                  className="space-y-6"
-                                             >
-                                                  <h3 className="text-2xl font-bold tracking-tight text-text-primary">{selected.title}</h3>
-                                                  <p className="text-text-muted leading-relaxed text-base">
-                                                       {selected.description.split(selected.boldPhrase).map((part, i, arr) => (
-                                                            <React.Fragment key={i}>
-                                                                 {part}
-                                                                 {i !== arr.length - 1 && (
-                                                                      <strong className="text-accent font-semibold">{selected.boldPhrase}</strong>
-                                                                 )}
-                                                            </React.Fragment>
-                                                       ))}
-                                                  </p>
-                                                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3" role="list">
-                                                       {selected.bullets.map((item, i) => (
-                                                            <motion.li
-                                                                 key={item}
-                                                                 initial={{ opacity: 0, y: 5 }}
-                                                                 animate={{ opacity: 1, y: 0 }}
-                                                                 transition={{ delay: i * 0.05 }}
-                                                                 className="flex items-center gap-3 rounded-xl border border-border-subtle bg-bg-subtle px-4 py-3"
-                                                            >
-                                                                 <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                                                 <span className="text-sm font-medium text-text-body">{item}</span>
-                                                            </motion.li>
-                                                       ))}
-                                                  </ul>
-                                             </motion.div>
-                                        </AnimatePresence>
-                                   </div>
-                              </motion.div>
-                         </div>
-                    </motion.section>
+                                   Home
+                              </Link>
+                              <span className="text-text-muted">/</span>
+                              <Link
+                                   href="/services"
+                                   className="rounded-lg px-3 py-1.5 font-medium text-text-muted transition-all hover:text-accent"
+                              >
+                                   Services
+                              </Link>
+                              <span className="text-text-muted">/</span>
+                              <span className="rounded-lg px-3 py-1.5 font-semibold text-accent ">
+                                  AI-Driven Tools
+                              </span>
+                         </nav>
+                     
+                    </div>
+               </section>
 
-                    {/* How We Serve Section */}
-                    <motion.section
-                         className="border-t border-border-subtle py-14 md:py-20"
-                         initial="hidden"
-                         whileInView="visible"
-                         viewport={{ once: true, margin: "-40px" }}
-                    >
-                         <div className="mx-auto max-w-3xl text-center mb-16">
-                              <h2 className="text-2xl font-bold tracking-tight text-text-primary md:text-4xl">
-                                   Delivering Intelligence Through AI                              </h2>
-                              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-accent" />
-                              <p className="mt-6 text-text-muted text-lg">
-                                   We handle the full lifecycle of your AI solution, from strategy and training to deployment and continuous optimization.
-                              </p>
-                         </div>
+               {/* --- RESULTS BAR --- */}
+               <section className="px-page-x py-20 bg-bg-subtle/50 relative">
+                    <div className="max-w-7xl mx-auto relative">
+                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0">
+                              {results.map((item, i) => (
+                                   <div key={i} className="group relative">
+                                        {/* Vertical Divider for desktop */}
+                                        {i !== 0 && <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-border-default" />}
 
-                         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                              {HOW_WE_SERVE.map(({ title, desc, icon }) => (
-                                   <motion.article
-                                        key={title}
-                                        whileHover={{ y: -8 }}
-                                        className="group relative flex flex-col rounded-2xl border border-border-subtle bg-bg-subtle p-8 transition-all duration-300"
-                                   >
-                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-text-inverse shadow-lg shadow-accent/20 group-hover:scale-110 transition-transform">
-                                             {icon}
+                                        <div className="px-8 py-6 rounded-3xl transition-all duration-300 hover:bg-bg-surface/80 hover:shadow-xl hover:shadow-accent/5 lg:hover:-translate-y-1">
+                                             <div className="flex flex-col items-center lg:items-start space-y-3">
+                                                  <div className="w-10 h-10 rounded-xl bg-accent-muted text-accent flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-accent group-hover:text-text-inverse">
+                                                       {item.icon}
+                                                  </div>
+                                                  <div>
+                                                       <div className="flex items-baseline gap-1 justify-center lg:justify-start">
+                                                            <span className="text-3xl font-black text-text-primary tracking-tight">{item.metric}</span>
+                                                       </div>
+                                                       <div className="text-[10px] font-black text-accent-secondary uppercase tracking-[0.2em] mb-1">
+                                                            {item.unit}
+                                                       </div>
+                                                       <div className="text-ui font-bold text-text-body">
+                                                            {item.label}
+                                                       </div>
+                                                  </div>
+                                             </div>
                                         </div>
-                                        <h3 className="relative text-xl font-bold text-text-primary mb-3">{title}</h3>
-                                        <p className="relative text-text-muted text-sm leading-relaxed">{desc}</p>
-                                   </motion.article>
+                                   </div>
                               ))}
                          </div>
-                    </motion.section>
-               </div>
+                    </div>
+               </section>
+
+               {/* --- FEATURES GRID --- */}
+               <section className="py-20 px-page-x max-w-7xl mx-auto relative">
+                    {/* Background decorative elements */}
+                    <div className="absolute top-0 right-0 -mr-20 mt-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+                    <div className="text-center mb-20 space-y-4">
+                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-muted text-accent font-bold text-[10px] uppercase tracking-widest border border-accent/10">
+                              Platform Capabilities
+                         </div>
+                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-5xl">
+                              Powerful Key <span className="text-accent">Features</span>
+                         </h2>
+                         <p className="text-text-muted max-w-xl mx-auto text-subheading">
+                              Everything you need to automate your customer communication flow from start to finish.
+                         </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                         {features.map((feat, i) => (
+                              <div
+                                   key={i}
+                                   className="group relative p-8 rounded-[2rem] bg-bg-surface border border-border-subtle hover:border-accent/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(37,99,235,0.1)] overflow-hidden"
+                              >
+                                   {/* Subtle accent hover background */}
+                                   <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-[3] pointer-events-none" />
+
+                                   <div className="relative z-10">
+                                        <div className="flex justify-between items-start mb-8">
+                                             <div className="w-14 h-14 rounded-2xl bg-accent text-text-inverse flex items-center justify-center shadow-lg shadow-accent/20 transition-transform duration-300">
+                                                  {feat.icon}
+                                             </div>
+                                             <span className="text-[10px] font-black uppercase tracking-widest text-accent-secondary bg-accent-muted px-3 py-1 rounded-full">
+                                                  {feat.tag}
+                                             </span>
+                                        </div>
+
+                                        <h3 className="text-headline font-bold text-text-primary mb-3 group-hover:text-accent transition-colors">
+                                             {feat.title}
+                                        </h3>
+
+                                        <p className="text-text-body leading-relaxed text-body-sm opacity-80 group-hover:opacity-100 transition-opacity">
+                                             {feat.desc}
+                                        </p>
+
+                                        
+                                   </div>
+                              </div>
+                         ))}
+                    </div>
+               </section>
+
+
+               {/* --- WHO IT'S FOR --- */}
+               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex">
+
+                    {/* LEFT SIDE */}
+                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                         <div className="space-y-6">
+                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
+                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
+                              </h2>
+
+                              <p className="text-text-primary/70 text-subheading">
+                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
+                              </p>
+
+                              <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                                   {targetIndustries.map((tool, i) => (
+                                        <div
+                                             key={i}
+                                             className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
+                                        >
+                                             <div className="text-accent-secondary">{tool.icon}</div>
+                                             <span className="text-accent/85 font-medium group-hover:text-accent">
+                                                  {tool.name}
+                                             </span>
+                                        </div>
+                                   ))}
+                              </div>
+                         </div>
+                    </div>
+
+                    {/* RIGHT SIDE – AI MICROCHIP ANIMATION */}
+                    <div className="absolute top-0 right-0 h-full w-[50%] pointer-events-none">
+                         <AiMicrochipAnimation />
+                    </div>
+               </section>
+
+               {/* --- PRICING --- */}
+               <section className="py-20 px-page-x max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                         <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">Simple, <span className="text-accent">Transparent Pricing</span></h2>
+                         <p className="text-text-muted">Choose the plan that fits your business scale.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                         {/* Starter */}
+                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                              <div className="mb-8">
+                                   <h3 className="text-headline font-bold text-text-primary">Starter</h3>
+                                   <div className="mt-4 flex items-baseline gap-1">
+                                        <span className="text-3xl font-bold text-text-primary">$30</span>
+                                        <span className="text-text-muted">/month</span>
+                                   </div>
+                                   <p className="text-caption text-text-muted mt-2">+$25 setup fee</p>
+                              </div>
+                              <ul className="space-y-4 mb-8 flex-1">
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Basic chatbot automation</span>
+                                   </li>
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Standard broadcast limits</span>
+                                   </li>
+                              </ul>
+                              <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
+                                   Get Started
+                              </button>
+                         </div>
+
+                         {/* Professional */}
+                         <div className="p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
+                              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
+                                   MOST POPULAR
+                              </div>
+                              <div className="mb-8">
+                                   <h3 className="text-headline font-bold text-text-primary">Professional</h3>
+                                   <div className="mt-4 flex items-baseline gap-1">
+                                        <span className="text-3xl font-bold text-text-primary">$100</span>
+                                        <span className="text-text-muted">/month</span>
+                                   </div>
+                                   <p className="text-caption text-text-muted mt-2">+$75 setup fee</p>
+                              </div>
+                              <ul className="space-y-4 mb-8 flex-1">
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Advanced AI Logic</span>
+                                   </li>
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Full CRM Integration</span>
+                                   </li>
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Priority Support</span>
+                                   </li>
+                              </ul>
+                              <button className="w-full py-3 rounded-xl bg-accent text-text-inverse font-bold hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
+                                   Go Professional
+                              </button>
+                         </div>
+
+                         {/* Enterprise */}
+                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                              <div className="mb-8">
+                                   <h3 className="text-headline font-bold text-text-primary">Enterprise</h3>
+                                   <div className="mt-4 flex items-baseline gap-1">
+                                        <span className="text-3xl font-bold text-text-primary">$250</span>
+                                        <span className="text-text-muted">/month</span>
+                                   </div>
+                                   <p className="text-caption text-text-muted mt-2">+$200 setup fee</p>
+                              </div>
+                              <ul className="space-y-4 mb-8 flex-1">
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Unlimited Broadcasts</span>
+                                   </li>
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Dedicated Manager</span>
+                                   </li>
+                                   <li className="flex items-start gap-3 text-ui">
+                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                                        <span>Custom API Solutions</span>
+                                   </li>
+                              </ul>
+                              <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
+                                   Contact Sales
+                              </button>
+                         </div>
+                    </div>
+               </section>
+
+               {/* --- FOOTER CTA --- */}
+               <section className="relative py-24 px-6 overflow-hidden mb-20 md:mb-32">
+                    {/* Background Ambient Glows */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
+
+                    <div
+                        
+                         className="mx-auto max-w-6xl relative group"
+                    >
+                         {/* The Card Container */}
+                         <div className="relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-text-primary border border-border-default/10 p-8 md:p-20 lg:p-24 shadow-2xl">
+
+                              {/* Subtle Mesh Background Overlay */}
+                              <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_50%_-20%,#3b82f6,transparent_50%)]" />
+
+                              <div className="relative z-10 flex flex-col items-center text-center space-y-10">
+
+                                   {/* Badge / Top Icon */}
+                                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-text-primary/10 border border-border-default/20 text-accent text-sm font-medium">
+                                        <Zap className="w-4 h-4 fill-current" />
+                                        <span>Limited Availability for Q1</span>
+                                   </div>
+
+                                   {/* Heading with Fluid Typography */}
+                                   <div className="space-y-4">
+                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
+                                             Ready to transform your <br className="hidden md:block" />
+                                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
+                                                  WhatsApp communication?
+                                             </span>
+                                        </h2>
+                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
+                                             Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
+                                        </p>
+                                   </div>
+
+                                   {/* Action Buttons */}
+                                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
+                                             See WhatsApp Demo
+                                             <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        </Link>
+
+                                       
+                                   </div>
+
+                              
+                              </div>
+
+                              {/* Decorative Corner Element */}
+                              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/20 to-transparent blur-2xl rounded-lg translate-x-10 translate-y-10" />
+                         </div>
+                    </div>
+               </section>
           </div>
      );
-}
+};
+
+export default App;

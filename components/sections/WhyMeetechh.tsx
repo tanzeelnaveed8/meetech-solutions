@@ -1,74 +1,74 @@
-"use client";
-
-import React from "react";
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
-     ArrowUpRight,
-     Zap,
-     UserCheck,
-     Users2,
-     CalendarClock,
+     ArrowRight,
      ChevronRight,
-     ShieldCheck,
-     Cpu,
-     Lock,
      Globe,
-     BarChart3,
-} from "lucide-react";
-import CTA from "./CTA";
+     Users,
+     Zap,
+     TrendingUp,
+     DollarSign,
+     Target,
+     Cpu
+} from 'lucide-react';
 
-
-// WHY MEETECH DATA
+// Content Data
 const WHY_MEETECH = [
      {
-          title: "Founder-Led Engineering",
-          description:
-               "Every architectural decision is vetted by leadership. We engineer for ten-year scalability, not six-month stability.",
-          icon: <UserCheck className="w-5 h-5" />,
-          stat: "100% Oversight",
-          image:
-               "https://i.pinimg.com/736x/32/72/fd/3272fdbde5f3f2a613b4bfa3bc3f9135.jpg",
-          tag: "Integrity",
+          title: "Affordable Excellence",
+          description: "Global agencies charge $5,000–20,000 per month. We deliver the same quality for $300–2,000 per month. No hidden fees. No long-term contracts. Cancel anytime.",
+          icon: <DollarSign className="w-5 h-5" />,
+          stat: "70% Cheaper",
+          image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
+          tag: "Affordability",
      },
      {
-          title: "Sovereign In-House Team",
-          description:
-               "Zero outsourcing. Internal teams in Dubai and the US ensure accountability and data sovereignty.",
-          icon: <Users2 className="w-5 h-5" />,
-          stat: "No Freelancers",
-          image:
-               "https://i.pinimg.com/736x/43/d4/e4/43d4e494f01c6bc41b56cfc4305007b7.jpg",
-          tag: "Sovereignty",
+          title: "All-in-One Platform",
+          description: "Instead of managing five different vendors, get everything from one trusted partner. Seamless integration, single point of contact, and unified reporting.",
+          icon: <Target className="w-5 h-5" />,
+          stat: "5-in-1 Services",
+          image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+          tag: "Convenience",
      },
      {
-          title: "Deterministic Delivery",
-          description:
-               "Milestone-driven execution with real-time visibility into production pipelines and Git deployments.",
-          icon: <CalendarClock className="w-5 h-5" />,
-          stat: "98% On-Time",
-          image:
-               "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
-          tag: "Precision",
+          title: "Lightning-Fast Deployment",
+          description: "Traditional agencies take 2–4 weeks. We get you live in 24–48 hours. Faster results, lower risk, and immediate business impact.",
+          icon: <Zap className="w-5 h-5" />,
+          stat: "24–48 Hours",
+          image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
+          tag: "Speed",
      },
      {
-          title: "Enterprise Interoperability",
-          description:
-               "SOC2 & GDPR-aligned systems engineered for global ecosystems and complex migrations.",
-          icon: <ShieldCheck className="w-5 h-5" />,
-          stat: "Global Ready",
-          image:
-               "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-          tag: "Compliance",
+          title: "Expert Team",
+          description: "Our team includes Google Ads experts, Meta Ads specialists, LinkedIn professionals, blockchain developers, and cybersecurity engineers — each a master of their craft.",
+          icon: <Users className="w-5 h-5" />,
+          stat: "22 Specialists",
+          image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800",
+          tag: "Expertise",
+     },
+     {
+          title: "Proven Results",
+          description: "Real customers. Real measurable outcomes. WhatsApp automation delivers 3–4x ROI, AI tools 15–20x ROI, and social media campaigns 5–10x ROI. We focus on results that matter.",
+          icon: <TrendingUp className="w-5 h-5" />,
+          stat: "3–10x ROI",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+          tag: "Performance",
+     },
+     {
+          title: "Global Presence",
+          description: "Operating across UAE, USA, Pakistan, India, Bangladesh, and 21+ additional countries. We combine local expertise with global scale and timezone-aligned support.",
+          icon: <Globe className="w-5 h-5" />,
+          stat: "26+ Countries",
+          image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800",
+          tag: "Global Reach",
      },
 ];
 
-
-
-// MAIN APP
-const WhyMeetechh = () => {
+export default function App() {
      return (
-          <div className="min-h-screen bg-[var(--bg-page)] text-[var(--text-body)] font-sans selection:bg-[var(--accent-primary)]/30 selection:text-[var(--text-inverse)] mb-40 md:mb-56 xl:px-6">
+          <div className="min-h-screen bg-bg-page text-text-body font-sans selection:bg-accent/30 selection:text-text-inverse overflow-x-hidden">
 
-               {/* BACKGROUND DECORATION */}
+               {/* Background Decoration Layer */}
                <div className="fixed inset-0 pointer-events-none z-0">
                     <div
                          className="absolute inset-0 opacity-[0.15]"
@@ -77,111 +77,115 @@ const WhyMeetechh = () => {
                               backgroundSize: "48px 48px",
                          }}
                     />
-                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--accent-primary)]/10 blur-[150px] rounded-lg" />
-                    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-secondary)]/10 blur-[150px] rounded-lg" />
+                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 blur-[150px] rounded-lg" />
+                    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/10 blur-[150px] rounded-lg" />
                </div>
 
                <main className="relative z-10">
-                    {/* HERO SECTION */}
-                    <section className="relative py-32 md:py-56 border-b border-[var(--border-default)]/5">
-                         <div className="mx-auto max-w-7xl px-6  grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+                    <section className="relative py-20 md:py-32 lg:py-48 border-b border-border-default/5">
+                         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
 
-                              {/* LEFT - STICKY CONTENT */}
-                              <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-8">
-                                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20">
-                                        <Cpu className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
-                                        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--accent-primary)]">
+                              {/* LEFT COLUMN - Sticky Header & Metrics */}
+                              <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-10">
+                                   <motion.div
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20"
+                                   >
+                                        <Cpu className="w-3.5 h-3.5 text-accent" />
+                                        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">
                                              Engineering Edge
                                         </span>
-                                   </div>
+                                   </motion.div>
 
-                                   <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] tracking-tighter text-[var(--text-primary)]">
-                                        Technical <br /> Authority
+                                   <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 }}
+                                   >
+                                        <h1 className="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-text-primary mb-8">
+                                             WHY <br /> <span className="text-accent">meetech</span>
+                                        </h1>
 
-                                   </h1>
-
-                                   <div className="space-y-6">
-                                        <p className="text-xl leading-relaxed max-w-md text-[var(--text-muted)]">
-                                             We don’t just build apps   we engineer scalable digital assets designed for a decade of performance.
+                                        <p className="text-xl leading-relaxed max-w-md text-text-muted mb-12">
+                                             We're <span className="text-text-primary font-bold">70% cheaper</span> than competitors while delivering enterprise-quality results. Here's what makes us different.
                                         </p>
-
-                                        <div className="grid grid-cols-2 gap-4 pt-8">
-                                             <div className="p-4 rounded-2xl bg-[#1e40af]">
-                                                  <div className="text-2xl font-black text-[var(--text-inverse)]">400+</div>
-                                                  <div className="text-[10px] uppercase tracking-widest text-[var(--text-primary)]">Deployments</div>
-                                             </div>
-                                             <div className="p-4 rounded-2xl  bg-[#1e40af]">
-                                                  <div className="text-2xl font-black text-[var(--text-inverse)]">99.9%</div>
-                                                  <div className="text-[10px] uppercase tracking-widest text-[var(--text-primary)]">Uptime SLA</div>
-                                             </div>
-                                        </div>
-                                   </div>
+                                   </motion.div>
                               </div>
 
-                              {/* RIGHT - FEATURE CARDS */}
-                              <div className=" md:col-span-6 lg:col-span-7 space-y-8 h-fit overflow-y-auto ">
+                              {/* RIGHT COLUMN - Masonry Feature Cards */}
+                              <div className="lg:col-span-7 space-y-6">
                                    {WHY_MEETECH.map((item, i) => (
-                                        <div
+                                        <motion.div
                                              key={i}
-                                             className="group relative bg-[var(--bg-card)]/80 backdrop-blur-sm border border-[var(--border-default)]/10 rounded-[2.5rem] overflow-hidden hover:border-[var(--accent-primary)]/40 hover:bg-[var(--bg-surface)] transition-all duration-500"
+                                             initial={{ opacity: 0, y: 30 }}
+                                             whileInView={{ opacity: 1, y: 0 }}
+                                             viewport={{ once: true, margin: "-100px" }}
+                                             transition={{ delay: i * 0.1 }}
+                                             className="group relative bg-bg-card/80 backdrop-blur-xl border border-border-default rounded-[2.5rem] overflow-hidden hover:border-accent/40 hover:bg-bg-surface transition-all duration-700 shadow-sm hover:shadow-2xl"
                                         >
                                              <div className="flex flex-col md:flex-row">
-                                                  <div className="flex-1 p-8 md:p-12 flex flex-col justify-between space-y-6">
-                                                       <div className="flex justify-between items-start">
-                                                            <div className="p-3 rounded-2xl bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] group-hover:bg-[var(--accent-primary)] group-hover:text-[var(--text-inverse)] transition-all duration-300">
+                                                  {/* Text Content */}
+                                                  <div className="flex-1 p-10 md:p-12 flex flex-col justify-between">
+                                                       <div className="flex justify-between items-start mb-10">
+                                                            <div className="p-3.5 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-text-inverse transition-all duration-500 shadow-inner">
                                                                  {item.icon}
                                                             </div>
                                                             <div className="text-right">
-                                                                 <span className="block text-[10px] font-black uppercase tracking-widest text-[var(--accent-primary)]">
+                                                                 <span className="block text-xs font-black uppercase tracking-widest text-accent">
                                                                       {item.stat}
                                                                  </span>
-                                                                 <span className="block text-[9px] font-medium uppercase tracking-tighter text-[var(--text-muted)]">
+                                                                 <span className="block text-[9px] font-bold uppercase tracking-tighter text-text-muted mt-1 opacity-60">
                                                                       Current Metric
                                                                  </span>
                                                             </div>
                                                        </div>
 
-                                                       <div>
-                                                            <h3 className="text-2xl md:text-3xl font-black uppercase text-[var(--text-primary)] tracking-tight mb-3">
+                                                       <div className="space-y-4">
+                                                            <h3 className="text-2xl md:text-3xl font-black uppercase text-text-primary tracking-tight group-hover:text-accent transition-colors">
                                                                  {item.title}
                                                             </h3>
-                                                            <p className="text-[var(--text-muted)] text-base leading-relaxed">{item.description}</p>
+                                                            <p className="text-text-muted text-base leading-relaxed font-light">
+                                                                 {item.description}
+                                                            </p>
                                                        </div>
 
-                                                       <div className="mt-10 flex items-center gap-3">
-                                                            <div className="h-[1px] flex-1 bg-[var(--border-default)]/10" />
-                                                            <span className="text-[10px] font-bold uppercase flex items-center gap-1 group-hover:text-[var(--accent-primary)] transition-colors">
+                                                       <div className="mt-12 flex items-center gap-4">
+                                                            <div className="h-px flex-1 bg-border-default/20 group-hover:bg-accent/20 transition-colors" />
+                                                            <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:text-accent transition-colors">
                                                                  {item.tag} <ChevronRight className="w-3 h-3" />
                                                             </span>
                                                        </div>
                                                   </div>
 
+                                                  {/* Image Layer */}
                                                   <div className="md:w-[40%] relative min-h-[300px] md:min-h-full overflow-hidden">
                                                        <img
                                                             src={item.image}
                                                             alt={item.title}
-                                                            className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
+                                                            className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
                                                        />
-                                                       <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-card)] via-transparent to-transparent md:block hidden" />
-                                                       <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent md:hidden" />
+                                                       {/* Gradients to blend image with text area */}
+                                                       <div className="absolute inset-0 bg-gradient-to-r from-bg-card via-bg-card/50 to-transparent hidden md:block" />
+                                                       <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/50 to-transparent md:hidden" />
 
-                                                       <div className="absolute bottom-4 right-4 bg-[var(--bg-surface)]/60 backdrop-blur-md border border-[var(--border-default)]/10 px-3 py-1 rounded-lg text-[9px] font-mono text-[var(--text-muted)]">
+                                                       {/* Code Tag */}
+                                                       <div className="absolute bottom-6 right-6 bg-bg-surface/80 backdrop-blur-md border border-border-default/20 px-4 py-1.5 rounded-xl text-[9px] font-mono text-text-muted shadow-lg">
                                                             SRV-0{i + 1}.MTCH
                                                        </div>
                                                   </div>
                                              </div>
-                                        </div>
+
+                                             {/* Highlight bar at bottom */}
+                                             <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                        </motion.div>
                                    ))}
+
                               </div>
 
                          </div>
                     </section>
-
-                    {/* CTA */}
-                    <CTA />
                </main>
           </div>
      );
 }
-
-export default WhyMeetechh;

@@ -92,3 +92,27 @@ export const LaunchIcon = () => (
     <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
   </svg>
 );
+
+export const ConsultationIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M21 16.5c0 1.38-1.12 2.5-2.5 2.5h-13c-1.38 0-2.5-1.12-2.5-2.5v-9C3 6.12 4.12 5 5.5 5h13c1.38 0 2.5 1.12 2.5 2.5v9z" />
+  </svg>
+);
+
+export const StrategyIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7 12a5 5 0 0110 0v4H7v-4z" />
+  </svg>
+);
+
+export const DeploymentIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+);
+
+export const OptimizationIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2zM12 14v6m0 0h-3m3 0h3" />
+  </svg>
+);

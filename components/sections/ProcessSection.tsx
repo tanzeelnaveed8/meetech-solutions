@@ -11,7 +11,7 @@ const ProcessSection = () => {
                <section className="text-center mb-16 md:mb-24">
 
                     <h2 className="text-4xl md:text-6xl font-black  uppercase tracking-tighter mb-6">
-                         Our Process, <br /> Your Success
+                         How Meetech Works <span className=' block  text-accent'>Simple, Fast, Effective</span>
                     </h2>
                     <p className="mx-auto max-w-3xl text-lg text-text-body font-light leading-relaxed">
                          Every successful project starts with a clear roadmap. Our tried-and-tested 5-step methodology ensures that every detail is covered from discovery to launch.

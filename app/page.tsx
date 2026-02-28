@@ -3,17 +3,26 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import CountUp from "react-countup";
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Globe, Shield, Zap, Server, ChevronRight, Clock, Award, Briefcase } from 'lucide-react';
+import { ArrowRight, Globe, ShieldCheck, Zap, Users, ChevronRight, TrendingUp, Clock, Award, Briefcase } from 'lucide-react';
 import { SiNextdotjs, SiReact, SiTypescript, SiNodedotjs, SiPostgresql, SiAmazon, SiFlutter, SiPython, SiDocker, SiKubernetes, SiGraphql } from "react-icons/si";
 import NeuralBackground from '../components/background/NeuralBackground';
 import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
-import WhyMeetechh from '@/components/sections/WhyMeetech';
-import ProcessSection from '@/components/sections/ProcessSection';
+import WhyMeetechh from '@/components/sections/WhyMeetechh';
 import FeaturedInsights from '@/components/sections/FeaturedInsights';
 import MeetechCTA from '@/components/sections/CTA';
 import Project from './work/page';
 import { FloatingCTA } from '@/components/ui/FloatingCTA';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import {Pricing} from "@/components/sections/Pricing"
+import Testimonials from "@/components/sections/Testimonials"
+
+
+
+
+
+
 // Animation constants
 const DURATION = 0.6;
 const EASE = "easeOut";
@@ -41,6 +50,12 @@ export default function App() {
   const scale = useTransform(scrollY, [0, 400], [1, 0.98]);
   const reduce = Boolean(useReducedMotion());
 
+  const stats = [
+    { label: "Countries", value: 26, display: "26+", icon: <Globe className="w-4 h-4" /> },
+    { label: "Happy Customers", value: 1000, display: "1000+", icon: <Users className="w-4 h-4" /> },
+    { label: "Deployment", value: 24, display: "24-48h", icon: <Zap className="w-4 h-4" /> },
+    { label: "Retention Rate", value: 95, display: "95%+", icon: <TrendingUp className="w-4 h-4" /> },
+  ];
   return (
     <div className="relative min-h-screen w-full bg-bg-page text-text-primary selection:bg-accent selection:text-text-inverse overflow-hidden font-sans transition-colors duration-500">
 
@@ -54,9 +69,11 @@ export default function App() {
       <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 h-[600px] w-[900px] bg-accent/5 blur-[140px] rounded-full pointer-events-none" />
 
       {/* Main Hero Section */}
+
+      {/* Main Hero Section */}
       <motion.section
         style={{ opacity, scale }}
-        className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center"
+        className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-32 text-center"
       >
         <div className="max-w-6xl w-full">
 
@@ -64,14 +81,14 @@ export default function App() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
-            className="group mb-12 inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-border-default bg-bg-surface/60 backdrop-blur-2xl cursor-default hover:border-accent/40 transition-all shadow-sm"
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="group mb-10 inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-border-default bg-bg-surface/60 backdrop-blur-2xl cursor-default hover:border-accent/40 transition-all shadow-sm"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
             </span>
-            <p className="text-[11px] md:text-xs font-bold tracking-[0.25em] uppercase text-text-muted">
+            <p className="text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase text-text-muted">
               Scaling Innovation &middot; USA &middot; UAE &middot; Global
             </p>
             <ChevronRight className="w-3.5 h-3.5 text-accent" />
@@ -82,11 +99,12 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.92] mb-10 text-text-primary"
+            className="text-5xl md:text-7xl lg:text-6xl font-black tracking-tighter leading-[0.92] mb-10 text-text-primary"
           >
-            Where Visionary Ideas <br />
-            <span className="text-accent bg-clip-text">
-              Meet Technology
+            Complete Digital
+            Transformation for <br />
+            <span className="text-accent bg-clip-text lg:text-8xl">
+              Your Business
             </span>
           </motion.h1>
 
@@ -95,9 +113,9 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mx-auto max-w-2xl text-lg md:text-xl text-text-body mb-14 leading-relaxed font-light"
+            className="mx-auto max-w-2xl text-lg text-text-body mb-14 leading-relaxed font-light"
           >
-            <span className=' font-bold'>Meetech Development</span> architects high-performance digital ecosystems and production-grade products for enterprises requiring absolute reliability and global scale.
+            <span className='font-bold text-text-primary'>Meetech Solutions</span> empowers businesses with WhatsApp Automation, AI Tools, and Blockchain — serving <span className="text-accent font-semibold">1,000+ businesses</span> across 26 countries.
           </motion.p>
 
           {/* CTA Hub */}
@@ -105,28 +123,72 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-24"
           >
             <Link
               href="/services"
-              className="group relative px-10 py-5 bg-accent text-text-inverse font-bold rounded-xl overflow-hidden transition-all hover:bg-accent-hover hover:shadow-[0_0_25px_-5px_rgba(37,99,235,0.4)] active:scale-95 inline-flex items-center justify-center"
+              className="group relative px-10 py-5 bg-accent text-white font-bold rounded-xl overflow-hidden transition-all hover:bg-accent-hover hover:shadow-[0_0_25px_-5px_rgba(37,99,235,0.4)] active:scale-95 inline-flex items-center justify-center w-full sm:w-auto"
             >
               <span className="relative flex items-center gap-2">
-                Explore Solutions <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                Start Free Trial <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
 
             <Link
               href="/contact"
-              className="px-10 py-5 bg-transparent border-2 border-border-strong hover:bg-bg-subtle hover:border-accent text-text-primary font-bold rounded-xl transition-all active:scale-95 inline-flex items-center justify-center"
+              className="px-10 py-5 bg-transparent border-2 border-border-strong hover:bg-bg-subtle hover:border-accent text-text-primary font-bold rounded-xl transition-all active:scale-95 inline-flex items-center justify-center w-full sm:w-auto"
             >
-              Consult Our Engineers
+              Schedule Demo
             </Link>
           </motion.div>
 
 
+
         </div>
       </motion.section>
+      {/* MODERN STATS HUB */}
+      <div className=" w-full lg:w-3/4 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3  overflow-hidden  py-16">
+        {stats.map((stat, idx) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 + (idx * 0.1) }}
+            className=" border border-border-default/60 bg-bg-subtle backdrop-blur-md p-6 rounded-xl flex flex-col items-center justify-center group hover:bg-bg-surface transition-colors duration-500"
+          >
+            <div className="mb-4 p-3 rounded-2xl bg-accent/5 text-accent group-hover:scale-110 transition-transform duration-500">
+              {stat.icon}
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-3xl md:text-4xl font-black text-text-primary tracking-tighter mb-1">
+                <CountUp
+                  end={stat.value} // numeric value
+                  duration={2}
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
+                {stat.display.replace(/\d+/g, "")} {/* append extra symbols like +, %, h */}
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent mb-2">
+                {stat.label}
+              </span>
+              <span className="text-xs text-text-muted font-medium">
+                {stat.suffix}
+              </span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      {/* Discovery Indicator */}
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40 hidden md:flex"
+      >
+        <span className="text-[9px] font-black tracking-[0.4em] uppercase text-text-muted">Discovery</span>
+        <div className="w-[1.5px] h-12 bg-gradient-to-b from-accent via-accent/50 to-transparent rounded-full" />
+      </motion.div>
+
 
       {/* Infinite Scroll Indicator */}
       <motion.div
@@ -284,7 +346,12 @@ export default function App() {
 
       {/* Why Meetechh Section */}
       <WhyMeetechh />
+      <ProcessTimeline />
+      {/* Pricing */}
+      <Pricing />
 
+      {/* Testimonials */}
+      <Testimonials />
       {/* CTA Section */}
       <MeetechCTA />
 

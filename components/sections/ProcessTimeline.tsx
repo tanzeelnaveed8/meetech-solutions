@@ -1,65 +1,54 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { motion } from "framer-motion";
+import { useReducedMotion, motion } from "framer-motion";
 import {
-  UnderstandIcon,
-  PlanIcon,
-  DesignIcon,
-  ReviewIcon,
-  LaunchIcon,
-} from "@/components/icons/ProcessIcons";
+  UserCheck,
+  Target,
+  PackageCheck,
+  RefreshCcw,
+} from "lucide-react"; // Lucide icons
 import { EASE, DURATION, STAGGER_DELAY, STAGGER_DELAY_CHILDREN } from "@/lib/constants";
 
 const PROCESS_STEPS = [
   {
-    id: "understand",
+    id: "consultation",
     order: 1,
-    name: "Understand",
+    name: "Initial Consultation (Free)",
     description:
-      "We dive deep into your business goals, target audience, and project requirements to ensure we're aligned from day one.",
-    icon: "understand",
+      "We understand your business, your goals, and your challenges. No sales pitch. Just an honest assessment of what you need. Duration: 20 minutes",
+    icon: "consultation",
   },
   {
-    id: "plan",
+    id: "strategy",
     order: 2,
-    name: "Plan",
+    name: "Customized Strategy",
     description:
-      "We create a detailed roadmap with clear milestones, timelines, and deliverables so you know exactly what to expect.",
-    icon: "plan",
+      "We recommend which services will give you the best ROI. You choose what makes sense for your business. Duration: 24 hours",
+    icon: "strategy",
   },
   {
-    id: "design",
+    id: "deployment",
     order: 3,
-    name: "Design",
+    name: "Rapid Deployment",
     description:
-      "Our designers craft intuitive, beautiful interfaces that reflect your brand and delight your users.",
-    icon: "design",
+      "We set everything up and go live. Most services go live in 24-48 hours. Duration: 24-48 hours",
+    icon: "deployment",
   },
   {
-    id: "review",
+    id: "optimization",
     order: 4,
-    name: "Review",
+    name: "Continuous Optimization",
     description:
-      "We iterate based on your feedback, ensuring every detail meets your standards before moving forward.",
-    icon: "review",
-  },
-  {
-    id: "launch",
-    order: 5,
-    name: "Launch",
-    description:
-      "We deploy your product with confidence, provide training, and ensure a smooth handoff with ongoing support.",
-    icon: "launch",
+      "We monitor, optimize, and report on everything. You get results and we measure them. Duration: Ongoing",
+    icon: "optimization",
   },
 ] as const;
 
 const iconComponents = {
-  understand: UnderstandIcon,
-  plan: PlanIcon,
-  design: DesignIcon,
-  review: ReviewIcon,
-  launch: LaunchIcon,
+  consultation: UserCheck,
+  strategy: Target,
+  deployment: PackageCheck,
+  optimization: RefreshCcw,
 };
 
 export function ProcessTimeline() {
@@ -68,14 +57,14 @@ export function ProcessTimeline() {
   return (
     <section
       aria-labelledby="process-timeline-heading"
-      className="border-t border-border-default py-16 md:py-24"
+      className="border-t border-border-default py-16 md:py-24 px-6"
     >
       <header className="mb-10 md:mb-14">
-        <h2
-          id="process-timeline-heading"
-          className="text-2xl font-bold tracking-tight text-text-primary md:text-3xl lg:text-[2rem]"
-        >
-          Our 5-Step Process
+        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
+          How Meetech Works{" "}
+          <span className="block text-accent text-4xl md:text-6xl">
+            Simple, Fast, Effective
+          </span>
         </h2>
         <p className="mt-4 text-text-body md:text-lg">
           A proven methodology that delivers results, from discovery to launch.
@@ -109,7 +98,7 @@ export function ProcessTimeline() {
             aria-hidden="true"
           />
 
-          <div className="relative grid grid-cols-5 gap-6">
+          <div className="relative grid grid-cols-4 gap-6">
             {PROCESS_STEPS.map((step, index) => {
               const IconComponent = iconComponents[step.icon];
               return (
@@ -132,7 +121,7 @@ export function ProcessTimeline() {
                       whileHover={reduce ? {} : { scale: 1.05 }}
                       className="flex h-32 w-32 items-center justify-center rounded-lg border-4 border-bg-page bg-accent/10 text-accent shadow-lg transition-all duration-200 group-hover:bg-accent/15 group-hover:shadow-xl"
                     >
-                      <IconComponent />
+                      <IconComponent size={28} />
                     </motion.div>
                   </div>
 
@@ -153,7 +142,7 @@ export function ProcessTimeline() {
                     </p>
                   </div>
 
-                  {/* Arrow (except for last step) */}
+                  {/* Arrow (except last step) */}
                   {index < PROCESS_STEPS.length - 1 && (
                     <div
                       className="absolute right-0 top-[4rem] z-20 -mr-3 flex h-6 w-6 items-center justify-center rounded-lg bg-bg-page"
@@ -227,7 +216,7 @@ export function ProcessTimeline() {
                 {/* Icon Circle */}
                 <div className="relative z-10 flex-shrink-0">
                   <div className="flex h-16 w-16 items-center justify-center rounded-lg border-4 border-bg-page bg-accent/10 text-accent shadow-lg">
-                    <IconComponent />
+                    <IconComponent size={22} />
                   </div>
                 </div>
 

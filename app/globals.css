@@ -46,7 +46,7 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg-page: #020617;
-    --bg-surface: #020617;
+    --bg-surface: #020617; 
     --bg-card: #020617;
     --bg-subtle: #020617;
     --border-default: #1e293b;

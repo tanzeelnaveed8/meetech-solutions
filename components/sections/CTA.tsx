@@ -24,16 +24,13 @@ const MeetechCTA = () => {
      return (
           <section className="relative py-24 px-6 overflow-hidden mb-20 md:mb-32">
                {/* Background Ambient Glows */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-lg -z-10" />
 
                <motion.div
                     {...fadeIn}
                     className="mx-auto max-w-6xl relative group"
                >
-                    {/* The Card Container */}
                     <div className="relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-slate-950 border border-white/10 p-8 md:p-20 lg:p-24 shadow-2xl">
-
-                         {/* Subtle Mesh Background Overlay */}
                          <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_50%_-20%,#3b82f6,transparent_50%)]" />
 
                          <div className="relative z-10 flex flex-col items-center text-center space-y-10">
@@ -41,47 +38,52 @@ const MeetechCTA = () => {
                               {/* Badge / Top Icon */}
                               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium">
                                    <Zap className="w-4 h-4 fill-current" />
-                                   <span>Limited Availability for Q1</span>
+                                   <span>Limited Availability</span>
                               </div>
 
-                              {/* Heading with Fluid Typography */}
+                              {/* Heading */}
                               <div className="space-y-4">
                                    <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#F8FAFC] leading-[1.1]">
-                                        Ready to scale your <br className="hidden md:block" />
+                                        Ready to Transform Your <br className="hidden md:block" />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                                             Engineering?
+                                             Business?
                                         </span>
                                    </h2>
-                                   <p className="mx-auto max-w-2xl text-base` md:text-xl text-slate-400 leading-relaxed">
-                                        Join 50+ high-growth teams dominating their markets with Meetech's managed engineering partnerships.
+                                   <p className="mx-auto max-w-2xl text-base md:text-xl text-slate-400 leading-relaxed">
+                                        Join 1000+ businesses that are automating, growing, and securing their operations with Meetech Solutions.
                                    </p>
                               </div>
 
                               {/* Action Buttons */}
                               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                   <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-blue-600 hover:bg-blue-500 text-[#F8FAFC] rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
-                                        Book Strategy Call
+                                   <Link href="/signup" className="group w-full sm:w-auto px-4 md:px-8 py-4 bg-blue-600 hover:bg-blue-500 text-[#F8FAFC] rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
+                                        Start Free Trial
                                         <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                    </Link>
 
-                                   <Link href="/work" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-[#F8FAFC] border border-white/10 rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 active:scale-95">
-                                        View Case Studies
+                                   <Link href="https://calendly.com/your-booking-link" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-[#F8FAFC] border border-white/10 rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 active:scale-95">
+                                        Schedule Demo
                                    </Link>
                               </div>
 
-                              {/* Trust Markers / Social Proof */}
+                              {/* Trust Indicators */}
                               <div className="pt-6 border-t border-white/5 w-full max-w-md">
                                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 text-sm">
-                                        <div className="flex items-center gap-1.5">
-                                             <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                                             <span>No upfront costs</span>
-                                        </div>
-                                        <div className="flex items-center gap-1.5">
-                                             <Users className="w-4 h-4 text-blue-500" />
-                                             <span>100+ Expert Vetted Devs</span>
-                                        </div>
+                                        {[
+                                             "✓ 1000+ Happy Customers",
+                                             "✓ 95%+ Retention Rate",
+                                             "✓ 26+ Countries",
+                                             "✓ 24-Hour Deployment",
+                                             "✓ 30-Day Money-Back Guarantee"
+                                        ].map((trust) => (
+                                             <div key={trust} className="flex items-center gap-1.5">
+                                                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                                                  <span>{trust}</span>
+                                             </div>
+                                        ))}
                                    </div>
                               </div>
+
                          </div>
 
                          {/* Decorative Corner Element */}

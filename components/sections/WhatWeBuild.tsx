@@ -26,20 +26,19 @@ export function WhatWeBuild() {
       className="relative flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden py-16 md:py-20 lg:py-24"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-8">
-        <div className="max-w-xl space-y-6 mb-16">
+        <div className="max-w-2xl space-y-6 mb-16">
           <div className="flex items-center gap-4">
             <span className="h-[2px] w-12 bg-accent"></span>
             <span className="text-accent text-xs font-black uppercase tracking-[0.4em]">Services</span>
           </div>
           <h2
             id="what-we-build-heading"
-            className="text-5xl md:text-6xl font-black text-text-primary uppercase tracking-tighter leading-none"
+            className="text-3xl md:text-4xl font-black text-text-primary uppercase tracking-tighter leading-none"
           >
-            What we<br />Build
+            Everything You Need for Digital Growth <span className=" text-accent block text-5xl md:text-6xl">5 Powerful Services</span>
           </h2>
           <p className="text-lg text-text-body md:text-xl leading-relaxed">
-            Modern solutions that drive growth and scale with you.
-          </p>
+            Choose individual services or bundle them for maximum impact.          </p>
         </div>
         <motion.ul
           className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"

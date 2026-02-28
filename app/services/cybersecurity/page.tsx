@@ -2,52 +2,60 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import {
+     MessageSquare,
      MessageCircle,
      CheckCircle2,
      Clock,
      Zap,ShoppingCart,
      Calendar, ArrowUpRight,
      Users,
-     BarChart3,
-     Megaphone,
-     ArrowRight,
-     TrendingUp,
-     Store,
-     Scissors,
-     Building2,
+     Brain,
+     Database,
+     Cloud,Landmark,Factory,
+     Truck,
      Stethoscope,
-     Briefcase
+     Shield,
+     Eye,
+     FileCheck,
+     Lock,
+     AlertTriangle,
+     Scale,
+     Radar,
+     ShieldCheck,
+     BadgeCheck,
+     HeartHandshake
 } from 'lucide-react';
 import NeuralBackground from '@/components/background/NeuralBackground';
 import Link from 'next/link';
+import CybersecurityAnimation from "./CybersecurityAnimation"
 
 
 const App = () => {
      const [activeTab, setActiveTab] = useState('Restaurants');
 
      const features = [
-          { icon: <Zap className="w-6 h-6" />, tag: "Speed", title: "Intelligent Chatbot", desc: "Responds in under 30 seconds to any customer inquiry, ensuring no lead goes cold." },
-          { icon: <ShoppingCart className="w-6 h-6" />, tag: "Revenue", title: "Order & Payments", desc: "Seamless order management and secure payment links directly within the chat interface." },
-          { icon: <Calendar className="w-6 h-6" />, tag: "Efficiency", title: "Smart Booking", desc: "Full appointment booking engine with automated nudge reminders to reduce no-shows." },
-          { icon: <Users className="w-6 h-6" />, tag: "Data", title: "CRM Integration", desc: "Automatically sync customer data, preferences, and chat history with your existing tools." },
-          { icon: <Megaphone className="w-6 h-6" />, tag: "Growth", title: "Broadcasts", desc: "Send targeted marketing campaigns to your entire audience with high open rates." },
-          { icon: <BarChart3 className="w-6 h-6" />, tag: "Insight", title: "Deep Analytics", desc: "Track conversion rates, average response times, and ROI through a dedicated dashboard." },
+          { icon: <Shield className="w-6 h-6" />, tag: "Protection", title: "Security Audits", desc: "Comprehensive vulnerability assessments to identify and eliminate security gaps." },
+          { icon: <Eye className="w-6 h-6" />, tag: "Monitoring", title: "24/7 Threat Detection", desc: "Real-time monitoring to detect and stop cyber threats before damage occurs." },
+          { icon: <FileCheck className="w-6 h-6" />, tag: "Compliance", title: "Certifications Support", desc: "ISO, GDPR, HIPAA & SOC 2 compliance guidance with audit-ready documentation." },
+          { icon: <Lock className="w-6 h-6" />, tag: "Data Security", title: "Encryption & Backup", desc: "End-to-end data encryption and secure backup systems to protect critical assets." },
+          { icon: <AlertTriangle className="w-6 h-6" />, tag: "Response", title: "Incident Management", desc: "24/7 rapid response to contain, investigate, and resolve security incidents." },
+          { icon: <Users className="w-6 h-6" />, tag: "Awareness", title: "Employee Training", desc: "Security awareness programs to reduce human error and internal vulnerabilities." },
      ];
 
      const results = [
-          { label: "Restaurants", metric: "+20-30", unit: "orders/month", icon: <Store /> },
-          { label: "Salons", metric: "40%", unit: "fewer no-shows", icon: <Scissors /> },
-          { label: "E-commerce", metric: "15-20%", unit: "conversion lift", icon: <TrendingUp /> },
-          { label: "Real Estate", metric: "30%", unit: "more qualified leads", icon: <Building2 /> },
+          { label: "Threat Detection", metric: "100%", unit: "real-time monitoring coverage", icon: <Radar /> },
+          { label: "Security Breaches", metric: "Zero", unit: "incidents with active monitoring", icon: <ShieldCheck /> },
+          { label: "Compliance Success", metric: "First-Try", unit: "audit approval", icon: <BadgeCheck /> },
+          { label: "Business Confidence", metric: "Complete", unit: "peace of mind", icon: <HeartHandshake /> },
      ];
 
      const targetIndustries = [
-          { name: "Restaurants & Food Delivery", icon: <Store className="w-5 h-5" /> },
-          { name: "Salons, Spas & Beauty Clinics", icon: <Scissors className="w-5 h-5" /> },
-          { name: "Retail Stores & E-commerce", icon: <TrendingUp className="w-5 h-5" /> },
-          { name: "Real Estate Developers", icon: <Building2 className="w-5 h-5" /> },
-          { name: "Healthcare Clinics", icon: <Stethoscope className="w-5 h-5" /> },
-          { name: "Professional Services", icon: <Briefcase className="w-5 h-5" /> },
+          { name: "E-commerce & Payments", icon: <ShoppingCart className="w-5 h-5" /> },
+          { name: "SaaS & Tech Companies", icon: <Cloud className="w-5 h-5" /> },
+          { name: "Healthcare Networks", icon: <Stethoscope className="w-5 h-5" /> },
+          { name: "Finance & Fintech", icon: <Landmark className="w-5 h-5" /> },
+          { name: "Data-Driven Businesses", icon: <Database className="w-5 h-5" /> },
+          { name: "Regulated Industries", icon: <Scale className="w-5 h-5" /> },
      ];
 
      return (
@@ -64,15 +72,15 @@ const App = () => {
                          
 
                          <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-                              WhatsApp<span className="text-accent"> Automation</span> 
+                              Cybersecurity & <span className="text-accent">Auditing</span> 
                          </h1>
 
-                         <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm">
-                              24/7 customer service, orders & appointments on WhatsApp
-                         </p>
-
+                         <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm"/>
+                              Protect your business, ensure compliance, prevent breaches
                          <p  className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
-                              Our AI chatbots manage customer support, orders, bookings, and payments 24/7, so your team saves time while customers get instant replies.
+                                   A data breach costs $1,000,000+ on average. Our 24/7 threat monitoring,
+                                   security audits, and compliance certifications ensure your business is protected. Sleep soundly
+                                   knowing your data is secure.
                          </p>
                          {/* Breadcrumb */}
                          <nav
@@ -97,7 +105,7 @@ const App = () => {
                               </Link>
                               <span className="text-text-muted">/</span>
                               <span className="rounded-lg px-3 py-1.5 font-semibold text-accent ">
-                                   WhatsApp Automation
+                                  AI-Driven Tools
                               </span>
                          </nav>
                      
@@ -190,50 +198,38 @@ const App = () => {
 
 
                {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative">
-                    <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-                         <MessageCircle size={400} />
-                    </div>
+               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex">
 
-                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                    {/* LEFT SIDE */}
+                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
                          <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">Tailored Solutions for  <span className="text-accent-secondary block text-6xl">Every Industry</span></h2>
-                              <p className="text-text-primary/70 text-subheading">We build bespoke automation logic that understands the specific needs of your business niche.</p>
+                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
+                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
+                              </h2>
+
+                              <p className="text-text-primary/70 text-subheading">
+                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
+                              </p>
 
                               <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                                   {targetIndustries.map((ind, i) => (
-                                        <div key={i} className=" group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300">
-                                             <div className="text-accent-secondary">{ind.icon}</div>
-                                             <span className="text-accent/85 font-medium group-hover:text-accent">{ind.name}</span>
+                                   {targetIndustries.map((tool, i) => (
+                                        <div
+                                             key={i}
+                                             className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
+                                        >
+                                             <div className="text-accent-secondary">{tool.icon}</div>
+                                             <span className="text-accent/85 font-medium group-hover:text-accent">
+                                                  {tool.name}
+                                             </span>
                                         </div>
                                    ))}
                               </div>
                          </div>
+                    </div>
 
-                         <div className="relative rounded-3xl overflow-hidden bg-bg-surface p-2 shadow-2xl">
-                              <div className="bg-bg-subtle rounded-2xl p-8 text-text-body">
-                                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-border-subtle">
-                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-text-primary">
-                                             <MessageCircle size={20} />
-                                        </div>
-                                        <div>
-                                             <p className="font-bold text-text-primary">Meetech AI</p>
-                                             <p className="text-caption text-accent-secondary">Online • Typical response 30s</p>
-                                        </div>
-                                   </div>
-                                   <div className="space-y-4">
-                                        <div className="bg-border-subtle p-4 rounded-2xl rounded-tl-none max-w-[80%] text-ui">
-                                             Hello! Welcome to our store. How can I help you today?
-                                        </div>
-                                        <div className="bg-accent text-text-primary p-4 rounded-2xl rounded-tr-none max-w-[80%] ml-auto text-ui">
-                                             I'd like to book an appointment for a haircut tomorrow.
-                                        </div>
-                                        <div className="bg-border-subtle p-4 rounded-2xl rounded-tl-none max-w-[80%] text-ui">
-                                             Great! We have slots at 10:00 AM and 2:30 PM. Which one works for you?
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
+                    {/* RIGHT SIDE – CybersecurityAnimation ANIMATION */}
+                    <div className="absolute top-0 right-0 h-full w-[50%] pointer-events-none">
+                        <CybersecurityAnimation />
                     </div>
                </section>
 
@@ -358,13 +354,13 @@ const App = () => {
 
                                    {/* Heading with Fluid Typography */}
                                    <div className="space-y-4">
-                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-inverse leading-[1.1]">
+                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
                                              Ready to transform your <br className="hidden md:block" />
                                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
                                                   WhatsApp communication?
                                              </span>
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-text-inverse/70 leading-relaxed">
+                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
                                              Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
                                         </p>
                                    </div>
