@@ -31,13 +31,20 @@ interface Project {
      tags: string[];
 }
 
-const ProjectDetail = ({ project, category, close }: { project: any; category: string; close: () => void }) => {
+interface ProjectDetailProps {
+     project: any;
+     category?: string;
+     close: () => void;
+}
+
+const ProjectDetail = ({ project, category, close }: ProjectDetailProps) => {
      useEffect(() => {
           document.body.style.overflow = 'hidden';
           return () => { document.body.style.overflow = 'unset'; };
      }, []);
 
-     const isMobile = category === "Mobile Apps";
+     const resolvedCategory = category ?? project?.category;
+     const isMobile = resolvedCategory === "Mobile Apps";
 
      return (
           <motion.div

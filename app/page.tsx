@@ -51,10 +51,10 @@ export default function App() {
   const reduce = Boolean(useReducedMotion());
 
   const stats = [
-    { label: "Countries", value: 26, display: "26+", icon: <Globe className="w-4 h-4" /> },
-    { label: "Happy Customers", value: 1000, display: "1000+", icon: <Users className="w-4 h-4" /> },
-    { label: "Deployment", value: 24, display: "24-48h", icon: <Zap className="w-4 h-4" /> },
-    { label: "Retention Rate", value: 95, display: "95%+", icon: <TrendingUp className="w-4 h-4" /> },
+    { label: "Countries", value: 26, display: "26+", suffix: "Worldwide coverage", icon: <Globe className="w-4 h-4" /> },
+    { label: "Happy Customers", value: 1000, display: "1000+", suffix: "Businesses served", icon: <Users className="w-4 h-4" /> },
+    { label: "Deployment", value: 24, display: "24-48h", suffix: "Fast go-live window", icon: <Zap className="w-4 h-4" /> },
+    { label: "Retention Rate", value: 95, display: "95%+", suffix: "Long-term partnerships", icon: <TrendingUp className="w-4 h-4" /> },
   ];
   return (
     <div className="relative min-h-screen w-full bg-bg-page text-text-primary selection:bg-accent selection:text-text-inverse overflow-hidden font-sans transition-colors duration-500">

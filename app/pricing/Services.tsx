@@ -84,25 +84,14 @@ const Services = () => {
      ];
 
 
-     interface BasePlan {
+     interface Plan {
           name: string;
           setup?: string;
           monthly: string;
+          recommended?: boolean;
+          popular?: boolean;
+          oneTime?: boolean;
      }
-
-     interface RecommendedPlan extends BasePlan {
-          recommended: boolean;
-     }
-
-     interface PopularPlan extends BasePlan {
-          popular: boolean;
-     }
-
-     interface OneTimePlan extends BasePlan {
-          oneTime: boolean;
-     }
-
-     type Plan = BasePlan | RecommendedPlan | PopularPlan | OneTimePlan;
 
      interface Service {
           category: string;
