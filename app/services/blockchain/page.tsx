@@ -28,36 +28,35 @@ import {
 import NeuralBackground from '@/components/background/NeuralBackground';
 import Link from 'next/link';
 
-// import AiMicrochipAnimation from "./AiMicrochipAnimation"
 
-const App = () => {
+
+const Page = () => {
      const [activeTab, setActiveTab] = useState('Restaurants');
 
      const features = [
-          { icon: <Shield className="w-6 h-6" />, tag: "Protection", title: "Security Audits", desc: "Comprehensive vulnerability assessments to identify and eliminate security gaps." },
-          { icon: <Eye className="w-6 h-6" />, tag: "Monitoring", title: "24/7 Threat Detection", desc: "Real-time monitoring to detect and stop cyber threats before damage occurs." },
-          { icon: <FileCheck className="w-6 h-6" />, tag: "Compliance", title: "Certifications Support", desc: "ISO, GDPR, HIPAA & SOC 2 compliance guidance with audit-ready documentation." },
-          { icon: <Lock className="w-6 h-6" />, tag: "Data Security", title: "Encryption & Backup", desc: "End-to-end data encryption and secure backup systems to protect critical assets." },
-          { icon: <AlertTriangle className="w-6 h-6" />, tag: "Response", title: "Incident Management", desc: "24/7 rapid response to contain, investigate, and resolve security incidents." },
-          { icon: <Users className="w-6 h-6" />, tag: "Awareness", title: "Employee Training", desc: "Security awareness programs to reduce human error and internal vulnerabilities." },
+          { icon: <Shield className="w-6 h-6" />, tag: "Security", title: "Smart Contract Audits", desc: "Comprehensive smart contract audits to detect vulnerabilities, logic flaws, and security risks before deployment." },
+          { icon: <Eye className="w-6 h-6" />, tag: "Transparency", title: "On-Chain Monitoring", desc: "Real-time blockchain transaction monitoring to detect suspicious activity and protect digital assets." },
+          { icon: <FileCheck className="w-6 h-6" />, tag: "Compliance", title: "Regulatory Guidance", desc: "Support for blockchain compliance, KYC/AML frameworks, and regulatory-ready documentation." },
+          { icon: <Lock className="w-6 h-6" />, tag: "Infrastructure", title: "Secure Node Setup", desc: "Deployment and maintenance of secure blockchain nodes with encrypted key management." },
+          { icon: <AlertTriangle className="w-6 h-6" />, tag: "Risk Control", title: "Incident Response", desc: "Rapid response strategies to handle exploits, wallet breaches, and protocol-level vulnerabilities." },
+          { icon: <Users className="w-6 h-6" />, tag: "Adoption", title: "Web3 Integration", desc: "Seamless integration of wallets, tokens, NFTs, and DeFi protocols into your existing platforms." },
      ];
 
      const results = [
-          { label: "Threat Detection", metric: "100%", unit: "real-time monitoring coverage", icon: <Radar /> },
-          { label: "Security Breaches", metric: "Zero", unit: "incidents with active monitoring", icon: <ShieldCheck /> },
-          { label: "Compliance Success", metric: "First-Try", unit: "audit approval", icon: <BadgeCheck /> },
-          { label: "Business Confidence", metric: "Complete", unit: "peace of mind", icon: <HeartHandshake /> },
+          { label: "Smart Contract Security", metric: "100%", unit: "pre-deployment audit coverage", icon: <Radar /> },
+          { label: "Exploit Prevention", metric: "Zero", unit: "critical vulnerabilities post-audit", icon: <ShieldCheck /> },
+          { label: "Deployment Speed", metric: "Fast-Track", unit: "go-live readiness", icon: <BadgeCheck /> },
+          { label: "Investor Confidence", metric: "High", unit: "trust & transparency", icon: <HeartHandshake /> },
      ];
 
      const targetIndustries = [
-          { name: "E-commerce & Payments", icon: <ShoppingCart className="w-5 h-5" /> },
-          { name: "SaaS & Tech Companies", icon: <Cloud className="w-5 h-5" /> },
-          { name: "Healthcare Networks", icon: <Stethoscope className="w-5 h-5" /> },
-          { name: "Finance & Fintech", icon: <Landmark className="w-5 h-5" /> },
-          { name: "Data-Driven Businesses", icon: <Database className="w-5 h-5" /> },
-          { name: "Regulated Industries", icon: <Scale className="w-5 h-5" /> },
+          { name: "DeFi Platforms", icon: <ShoppingCart className="w-5 h-5" /> },
+          { name: "Crypto Exchanges", icon: <Cloud className="w-5 h-5" /> },
+          { name: "NFT Marketplaces", icon: <Database className="w-5 h-5" /> },
+          { name: "Fintech & Payments", icon: <Landmark className="w-5 h-5" /> },
+          { name: "Supply Chain & Logistics", icon: <Scale className="w-5 h-5" /> },
+          { name: "Enterprise Web3 Solutions", icon: <Stethoscope className="w-5 h-5" /> },
      ];
-
      return (
           <div className="relative min-h-screen bg-bg-page text-text-body font-sans selection:bg-accent selection:text-text-inverse">
                {/* Decorative Grid */}
@@ -72,7 +71,7 @@ const App = () => {
 
 
                          <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-                              Cybersecurity & <span className="text-accent">Auditing</span>
+                              Blockchain <span className="text-accent">Integration</span>
                          </h1>
 
                          <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm" />
@@ -105,7 +104,7 @@ const App = () => {
                               </Link>
                               <span className="text-text-muted">/</span>
                               <span className="rounded-lg px-3 py-1.5 font-semibold text-accent ">
-                                   AI-Driven Tools
+                                   Blockchain Integration
                               </span>
                          </nav>
 
@@ -197,75 +196,7 @@ const App = () => {
                </section>
 
 
-               {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative">
-                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-                         {/* LEFT SIDE */}
-                         <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
-                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
-                              </h2>
-
-                              <p className="text-text-primary/70 text-subheading">
-                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
-                              </p>
-
-                              <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                                   {targetIndustries.map((tool, i) => (
-                                        <div
-                                             key={i}
-                                             className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
-                                        >
-                                             <div className="text-accent-secondary">{tool.icon}</div>
-                                             <span className="text-accent/85 font-medium group-hover:text-accent">
-                                                  {tool.name}
-                                             </span>
-                                        </div>
-                                   ))}
-                              </div>
-                         </div>
-
-                         {/* RIGHT SIDE – AI DASHBOARD PREVIEW */}
-                         {/* <div className="relative rounded-3xl overflow-hidden bg-bg-surface p-4 shadow-2xl"> */}
-                         {/* <AiMicrochipAnimation/> */}
-                         {/* <div className="bg-bg-subtle rounded-2xl p-8 text-text-body">
-
-                                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-border-subtle">
-                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-text-primary">
-                                             <Brain size={20} />
-                                        </div>
-                                        <div>
-                                             <p className="font-bold text-text-primary">AI Intelligence Engine</p>
-                                             <p className="text-caption text-accent-secondary">Live Data • Real-Time Insights</p>
-                                        </div>
-                                   </div>
-
-                                   <div className="space-y-4 text-ui">
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             📊 <span className="font-medium">Predictive Forecast:</span> Sales expected to grow 18% next month based on trend analysis.
-                                        </div>
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             🤖 <span className="font-medium">Automation Trigger:</span> 124 repetitive tasks completed automatically today.
-                                        </div>
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             🔎 <span className="font-medium">Customer Insights:</span> 32 high-intent leads identified using behavior scoring.
-                                        </div>
-
-                                        <div className="bg-accent/90 text-text-primary p-4 rounded-2xl">
-                                             ⚡ System Status: All AI models running at 99.9% efficiency.
-                                        </div>
-
-                                   </div>
-                              </div> */}
-                         {/* </div> */}
-
-                    </div>
-               </section>
-
+             
                {/* --- PRICING --- */}
                <section className="py-20 px-page-x max-w-7xl mx-auto">
                     <div className="text-center mb-16">
@@ -365,12 +296,9 @@ const App = () => {
                {/* --- FOOTER CTA --- */}
                <section className="relative py-24 px-6 overflow-hidden mb-20 md:mb-32">
                     {/* Background Ambient Glows */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-lg -z-10" />
 
-                    <div
-
-                         className="mx-auto max-w-6xl relative group"
-                    >
+                    <div className="mx-auto max-w-6xl relative group">
                          {/* The Card Container */}
                          <div className="relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-text-primary border border-border-default/10 p-8 md:p-20 lg:p-24 shadow-2xl">
 
@@ -382,32 +310,32 @@ const App = () => {
                                    {/* Badge / Top Icon */}
                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-text-primary/10 border border-border-default/20 text-accent text-sm font-medium">
                                         <Zap className="w-4 h-4 fill-current" />
-                                        <span>Limited Availability for Q1</span>
+                                        <span>Early Access for Web3 Projects</span>
                                    </div>
 
-                                   {/* Heading with Fluid Typography */}
+                                   {/* Heading */}
                                    <div className="space-y-4">
-                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
-                                             Ready to transform your <br className="hidden md:block" />
+                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1]">
+                                             Ready to build your <br className="hidden md:block" />
                                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
-                                                  WhatsApp communication?
+                                                  Blockchain ecosystem?
                                              </span>
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
-                                             Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
+                                        <p className="mx-auto max-w-2xl text-base md:text-xl text-bg-page/60 leading-relaxed">
+                                             Launch secure, scalable, and future-proof Web3 solutions with smart contracts, DeFi integrations, and enterprise-grade blockchain architecture.
                                         </p>
                                    </div>
 
-                                   {/* Action Buttons */}
+                                   {/* Action Button */}
                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
-                                             See WhatsApp Demo
+                                        <Link
+                                             href="/contact"
+                                             className="group w-full sm:w-auto px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95"
+                                        >
+                                             Explore Blockchain Solutions
                                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </Link>
-
-
                                    </div>
-
 
                               </div>
 
@@ -420,4 +348,4 @@ const App = () => {
      );
 };
 
-export default App;
+export default Page;

@@ -1,4 +1,5 @@
 
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import {
@@ -6,7 +7,7 @@ import {
      MessageCircle,
      CheckCircle2,
      Clock,
-     Zap,ShoppingCart,
+     Zap, ShoppingCart,
      Calendar, ArrowUpRight,
      Users,
      BarChart3,
@@ -15,7 +16,7 @@ import {
      TrendingUp,
      Brain,
      Database,
-     Cloud,Landmark,Factory,
+     Cloud, Landmark, Factory,
      Truck,
      Stethoscope,
      Headphones,
@@ -25,7 +26,7 @@ import NeuralBackground from '@/components/background/NeuralBackground';
 import Link from 'next/link';
 import AiMicrochipAnimation from "./AiMicrochipAnimation"
 
-const App = () => {
+const page = () => {
      const [activeTab, setActiveTab] = useState('Restaurants');
 
      const features = [
@@ -58,22 +59,22 @@ const App = () => {
                {/* Decorative Grid */}
                <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-default)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-default)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
-<NeuralBackground/>
+               <NeuralBackground />
                {/* --- HERO SECTION --- */}
                <section className="relative pt-20 pb-16 px-page-x overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px]  blur-[120px] rounded-full -z-10" />
 
                     <div className="max-w-5xl mx-auto text-center space-y-6">
-                         
+
 
                          <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-                              AI-Driven<span className="text-accent"> Tools</span> 
+                              AI-Driven<span className="text-accent"> Tools</span>
                          </h1>
 
                          <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm">
-Automate processes, predict trends, gain intelligent insights                         </p>
+                              Automate processes, predict trends, gain intelligent insights                         </p>
 
-                         <p  className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
+                         <p className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
                               Artificial intelligence can handle 80% of your repetitive work. From automating
                               customer onboarding to predicting which customers might leave, our AI tools eliminate manual
                               processes, reduce costs, and unlock insights hidden in your data.
@@ -101,10 +102,10 @@ Automate processes, predict trends, gain intelligent insights                   
                               </Link>
                               <span className="text-text-muted">/</span>
                               <span className="rounded-lg px-3 py-1.5 font-semibold text-accent ">
-                                  AI-Driven Tools
+                                   AI-Driven Tools
                               </span>
                          </nav>
-                     
+
                     </div>
                </section>
 
@@ -185,7 +186,7 @@ Automate processes, predict trends, gain intelligent insights                   
                                              {feat.desc}
                                         </p>
 
-                                        
+
                                    </div>
                               </div>
                          ))}
@@ -194,13 +195,13 @@ Automate processes, predict trends, gain intelligent insights                   
 
 
                {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex">
+               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex flex-col lg:flex-row my-16">
 
                     {/* LEFT SIDE */}
                     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
                          <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
-                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
+                              <h2 className="text-text-primary font-bold leading-tight text-7xl">
+                                   Who It's For
                               </h2>
 
                               <p className="text-text-primary/70 text-subheading">
@@ -224,7 +225,7 @@ Automate processes, predict trends, gain intelligent insights                   
                     </div>
 
                     {/* RIGHT SIDE – AI MICROCHIP ANIMATION */}
-                    <div className="absolute top-0 right-0 h-full w-[50%] pointer-events-none">
+                    <div className=" relative lg:absolute top-0 right-0 h-full w-full lg:w-[50%] pointer-events-none">
                          <AiMicrochipAnimation />
                     </div>
                </section>
@@ -237,24 +238,24 @@ Automate processes, predict trends, gain intelligent insights                   
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                         {/* Starter */}
-                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                         {/* Basic AI */}
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Starter</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Basic AI</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$30</span>
+                                        <span className="text-3xl font-bold text-text-primary">$150</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$25 setup fee</p>
+                                   <p className="text-caption text-text-muted mt-2">$150 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Basic chatbot automation</span>
+                                        <span>Core AI automation features</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Standard broadcast limits</span>
+                                        <span>Standard integrations</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
@@ -262,60 +263,60 @@ Automate processes, predict trends, gain intelligent insights                   
                               </button>
                          </div>
 
-                         {/* Professional */}
-                         <div className="p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
+                         {/* Advanced AI */}
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
                               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
-                                   MOST POPULAR
+                                   RECOMMENDED
                               </div>
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Professional</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Advanced AI</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$100</span>
+                                        <span className="text-3xl font-bold text-text-primary">$300</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$75 setup fee</p>
+                                   <p className="text-caption text-text-muted mt-2">$300 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Advanced AI Logic</span>
+                                        <span>Advanced AI workflows</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Full CRM Integration</span>
+                                        <span>Deep automation logic</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Priority Support</span>
+                                        <span>Priority support</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl bg-accent text-text-inverse font-bold hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                                   Go Professional
+                                   Choose Advanced
                               </button>
                          </div>
 
-                         {/* Enterprise */}
-                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                         {/* Enterprise AI */}
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Enterprise</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Enterprise AI</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$250</span>
+                                        <span className="text-3xl font-bold text-text-primary">$600+</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$200 setup fee</p>
+                                   <p className="text-caption text-text-muted mt-2">$600+ setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Unlimited Broadcasts</span>
+                                        <span>Enterprise-grade AI systems</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Dedicated Manager</span>
+                                        <span>Custom integrations & APIs</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Custom API Solutions</span>
+                                        <span>Dedicated success manager</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
@@ -328,59 +329,56 @@ Automate processes, predict trends, gain intelligent insights                   
                {/* --- FOOTER CTA --- */}
                <section className="relative py-24 px-6 overflow-hidden mb-20 md:mb-32">
                     {/* Background Ambient Glows */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-lg -z-10" />
 
-                    <div
-                        
-                         className="mx-auto max-w-6xl relative group"
-                    >
-                         {/* The Card Container */}
+                    <div className="mx-auto max-w-6xl relative group">
+                         {/* Card Container */}
                          <div className="relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-text-primary border border-border-default/10 p-8 md:p-20 lg:p-24 shadow-2xl">
 
-                              {/* Subtle Mesh Background Overlay */}
+                              {/* Mesh Overlay */}
                               <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_50%_-20%,#3b82f6,transparent_50%)]" />
 
                               <div className="relative z-10 flex flex-col items-center text-center space-y-10">
 
-                                   {/* Badge / Top Icon */}
+                                   {/* Badge */}
                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-text-primary/10 border border-border-default/20 text-accent text-sm font-medium">
                                         <Zap className="w-4 h-4 fill-current" />
-                                        <span>Limited Availability for Q1</span>
+                                        <span>AI-Powered Automation</span>
                                    </div>
 
-                                   {/* Heading with Fluid Typography */}
+                                   {/* Heading */}
                                    <div className="space-y-4">
-                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
-                                             Ready to transform your <br className="hidden md:block" />
+                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1]">
+                                             Ready to supercharge your <br className="hidden md:block" />
                                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
-                                                  WhatsApp communication?
+                                                  Business with AI?
                                              </span>
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
-                                             Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
+                                        <p className="mx-auto max-w-2xl text-base md:text-xl text-bg-page/60 leading-relaxed">
+                                             Automate workflows, analyze data instantly, and unlock smarter decision-making with Meetech’s AI-Driven Tools built for modern businesses.
                                         </p>
                                    </div>
 
-                                   {/* Action Buttons */}
+                                   {/* Action Button */}
                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
-                                             See WhatsApp Demo
+                                        <Link
+                                             href="/contact"
+                                             className="group w-full sm:w-auto px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95"
+                                        >
+                                             Explore AI Solutions
                                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </Link>
-
-                                       
                                    </div>
 
-                              
                               </div>
 
-                              {/* Decorative Corner Element */}
+                              {/* Decorative Corner */}
                               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/20 to-transparent blur-2xl rounded-lg translate-x-10 translate-y-10" />
                          </div>
                     </div>
                </section>
           </div>
      );
-};
+}
 
-export default App;
+export default page

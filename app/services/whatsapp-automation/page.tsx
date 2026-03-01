@@ -4,18 +4,18 @@ import React, { useState, useEffect } from 'react';
 import {
      MessageCircle,
      CheckCircle2,
-     Clock,
-     Zap,ShoppingCart,
+     Sparkles,
+     Zap, ShoppingCart,
      Calendar, ArrowUpRight,
      Users,
      BarChart3,
      Megaphone,
-     ArrowRight,
+     HelpCircle,
      TrendingUp,
      Store,
      Scissors,
      Building2,
-     Stethoscope,
+     Stethoscope, ZapOff,
      Briefcase
 } from 'lucide-react';
 import NeuralBackground from '@/components/background/NeuralBackground';
@@ -24,6 +24,7 @@ import Link from 'next/link';
 
 const App = () => {
      const [activeTab, setActiveTab] = useState('Restaurants');
+     const [visibleMessages, setVisibleMessages] = useState(0);
 
      const features = [
           { icon: <Zap className="w-6 h-6" />, tag: "Speed", title: "Intelligent Chatbot", desc: "Responds in under 30 seconds to any customer inquiry, ensuring no lead goes cold." },
@@ -50,28 +51,43 @@ const App = () => {
           { name: "Professional Services", icon: <Briefcase className="w-5 h-5" /> },
      ];
 
+     // Animation logic for the chat container
+     useEffect(() => {
+          const timer = setInterval(() => {
+               setVisibleMessages((prev) => (prev < 3 ? prev + 1 : 1));
+          }, 2500);
+          return () => clearInterval(timer);
+     }, []);
      return (
           <div className="relative min-h-screen bg-bg-page text-text-body font-sans selection:bg-accent selection:text-text-inverse">
+               <style>{`
+        @keyframes fadeInSlide {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-chat { animation: fadeInSlide 0.8s ease-out forwards; }
+      `}</style>
+
                {/* Decorative Grid */}
                <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-default)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-default)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
-<NeuralBackground/>
+               <NeuralBackground />
                {/* --- HERO SECTION --- */}
                <section className="relative pt-20 pb-16 px-page-x overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px]  blur-[120px] rounded-full -z-10" />
 
                     <div className="max-w-5xl mx-auto text-center space-y-6">
-                         
+
 
                          <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-                              WhatsApp<span className="text-accent"> Automation</span> 
+                              WhatsApp<span className="text-accent"> Automation</span>
                          </h1>
 
                          <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm">
                               24/7 customer service, orders & appointments on WhatsApp
                          </p>
 
-                         <p  className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
+                         <p className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
                               Our AI chatbots manage customer support, orders, bookings, and payments 24/7, so your team saves time while customers get instant replies.
                          </p>
                          {/* Breadcrumb */}
@@ -100,9 +116,10 @@ const App = () => {
                                    WhatsApp Automation
                               </span>
                          </nav>
-                     
+
                     </div>
                </section>
+               
 
                {/* --- RESULTS BAR --- */}
                <section className="px-page-x py-20 bg-bg-subtle/50 relative">
@@ -181,7 +198,7 @@ const App = () => {
                                              {feat.desc}
                                         </p>
 
-                                        
+
                                    </div>
                               </div>
                          ))}
@@ -210,30 +227,45 @@ const App = () => {
                               </div>
                          </div>
 
-                         <div className="relative rounded-3xl overflow-hidden bg-bg-surface p-2 shadow-2xl">
-                              <div className="bg-bg-subtle rounded-2xl p-8 text-text-body">
-                                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-border-subtle">
-                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-text-primary">
-                                             <MessageCircle size={20} />
+                         {/* NEW: Chat Animation Section (Product Demo) */}
+                         <section className="max-w-6xl mx-auto px-6 mb-24 grid gap-12 items-center">
+
+
+                              <div className="relative rounded-3xl overflow-hidden bg-[var(--bg-surface)] p-2 shadow-2xl border border-[var(--border-default)]">
+                                   <div className="bg-[var(--bg-subtle)] rounded-2xl p-8 text-[var(--text-body)] min-h-[400px]">
+                                        {/* Header */}
+                                        <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--border-subtle)]">
+                                             <div className="w-10 h-10 rounded-full bg-[var(--accent-primary)] flex items-center justify-center text-white">
+                                                  <MessageCircle size={20} />
+                                             </div>
+                                             <div>
+                                                  <p className="font-bold text-[var(--text-primary)]">Meetech AI</p>
+                                                  <p className="text-xs text-[var(--accent-secondary)]">Online • Typical response 30s</p>
+                                             </div>
                                         </div>
-                                        <div>
-                                             <p className="font-bold text-text-primary">Meetech AI</p>
-                                             <p className="text-caption text-accent-secondary">Online • Typical response 30s</p>
-                                        </div>
-                                   </div>
-                                   <div className="space-y-4">
-                                        <div className="bg-border-subtle p-4 rounded-2xl rounded-tl-none max-w-[80%] text-ui">
-                                             Hello! Welcome to our store. How can I help you today?
-                                        </div>
-                                        <div className="bg-accent text-text-primary p-4 rounded-2xl rounded-tr-none max-w-[80%] ml-auto text-ui">
-                                             I'd like to book an appointment for a haircut tomorrow.
-                                        </div>
-                                        <div className="bg-border-subtle p-4 rounded-2xl rounded-tl-none max-w-[80%] text-ui">
-                                             Great! We have slots at 10:00 AM and 2:30 PM. Which one works for you?
+
+                                        {/* Chat Body */}
+                                        <div className="space-y-4">
+                                             {visibleMessages >= 1 && (
+                                                  <div className="bg-[var(--border-subtle)] p-4 rounded-2xl rounded-tl-none max-w-[80%] text-sm animate-chat">
+                                                       Hello! Welcome to our store. How can I help you today?
+                                                  </div>
+                                             )}
+                                             {visibleMessages >= 2 && (
+                                                  <div className="bg-[var(--accent-primary)] text-white p-4 rounded-2xl rounded-tr-none max-w-[80%] ml-auto text-sm animate-chat">
+                                                       I'd like to book an appointment for a haircut tomorrow.
+                                                  </div>
+                                             )}
+                                             {visibleMessages >= 3 && (
+                                                  <div className="bg-[var(--border-subtle)] p-4 rounded-2xl rounded-tl-none max-w-[80%] text-sm animate-chat">
+                                                       Great! We have slots at 10:00 AM and 2:30 PM. Which one works for you?
+                                                  </div>
+                                             )}
                                         </div>
                                    </div>
                               </div>
-                         </div>
+                         </section>
+
                     </div>
                </section>
 
@@ -246,7 +278,7 @@ const App = () => {
 
                     <div className="grid md:grid-cols-3 gap-8">
                          {/* Starter */}
-                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
                                    <h3 className="text-headline font-bold text-text-primary">Starter</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
@@ -271,8 +303,8 @@ const App = () => {
                          </div>
 
                          {/* Professional */}
-                         <div className="p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
-                              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
+                              <div className="absolute -top-4  text-center left-1/2 -translate-x-1/2 bg-accent w-3/4 lg:w-1/2  mx-auto text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
                                    MOST POPULAR
                               </div>
                               <div className="mb-8">
@@ -303,7 +335,7 @@ const App = () => {
                          </div>
 
                          {/* Enterprise */}
-                         <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
+                         <div className=" p-8 md:p-6 lg:p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
                                    <h3 className="text-headline font-bold text-text-primary">Enterprise</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
@@ -339,7 +371,7 @@ const App = () => {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
 
                     <div
-                        
+
                          className="mx-auto max-w-6xl relative group"
                     >
                          {/* The Card Container */}
@@ -359,27 +391,29 @@ const App = () => {
                                    {/* Heading with Fluid Typography */}
                                    <div className="space-y-4">
                                         <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-inverse leading-[1.1]">
-                                             Ready to transform your <br className="hidden md:block" />
-                                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
-                                                  WhatsApp communication?
-                                             </span>
+                                             <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1]">
+                                                  Ready to transform your <br className="hidden md:block" />
+                                                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
+                                                       WhatsApp communication?                                                  </span>
+                                             </h2>
+
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-text-inverse/70 leading-relaxed">
+                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-text-muted leading-relaxed">
                                              Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
                                         </p>
                                    </div>
 
                                    {/* Action Buttons */}
                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
+                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-card-subtle/80 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
                                              See WhatsApp Demo
                                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </Link>
 
-                                       
+
                                    </div>
 
-                              
+
                               </div>
 
                               {/* Decorative Corner Element */}

@@ -191,101 +191,116 @@ const App = () => {
                </section>
 
 
-               {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative">
-                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-                         {/* LEFT SIDE */}
-                         <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
-                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
-                              </h2>
-
-                              <p className="text-text-primary/70 text-subheading">
-                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
-                              </p>
-
-                              <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                                   {targetIndustries.map((tool, i) => (
-                                        <div
-                                             key={i}
-                                             className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
-                                        >
-                                             <div className="text-accent-secondary">{tool.icon}</div>
-                                             <span className="text-accent/85 font-medium group-hover:text-accent">
-                                                  {tool.name}
-                                             </span>
-                                        </div>
-                                   ))}
-                              </div>
-                         </div>
-
-                         {/* RIGHT SIDE – AI DASHBOARD PREVIEW */}
-                         {/* <div className="relative rounded-3xl overflow-hidden bg-bg-surface p-4 shadow-2xl"> */}
-                         {/* <AiMicrochipAnimation/> */}
-                         {/* <div className="bg-bg-subtle rounded-2xl p-8 text-text-body">
-
-                                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-border-subtle">
-                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-text-primary">
-                                             <Brain size={20} />
-                                        </div>
-                                        <div>
-                                             <p className="font-bold text-text-primary">AI Intelligence Engine</p>
-                                             <p className="text-caption text-accent-secondary">Live Data • Real-Time Insights</p>
+                {/* --- WHO IT'S FOR --- */}
+                              <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex my-16">
+               
+                                   {/* LEFT SIDE */}
+                                   <div className="w-full lg:w-1/2 mx-auto grid p-6 gap-16 items-center relative z-10">
+                                        <div className="space-y-6">
+                                             <h2 className="text-text-primary font-bold leading-tight text-4xl md:text-6xl">
+                                                  Who It’s For
+                                             </h2>
+               
+                                             <p className="text-text-primary/70 text-subheading">
+                                                  Businesses looking to scale faster using automation, WhatsApp marketing, and performance-driven growth strategies.
+                                             </p>
+               
+                                             <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                                                  {[
+                                                       "E-commerce & DTC brands",
+                                                       "SaaS & tech startups",
+                                                       "Restaurants & food delivery",
+                                                       "Salons & beauty brands",
+                                                       "Real estate",
+                                                       "Professional services"
+                                                  ].map((industry, i) => (
+                                                       <div
+                                                            key={i}
+                                                            className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
+                                                       >
+                                                            <div className="text-accent-secondary">
+                                                                 <CheckCircle2 size={20} />
+                                                            </div>
+                                                            <span className="text-accent/85 font-medium group-hover:text-accent">
+                                                                 {industry}
+                                                            </span>
+                                                       </div>
+                                                  ))}
+                                             </div>
                                         </div>
                                    </div>
-
-                                   <div className="space-y-4 text-ui">
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             📊 <span className="font-medium">Predictive Forecast:</span> Sales expected to grow 18% next month based on trend analysis.
+               
+                                   {/* RIGHT SIDE: TYPICAL RESULTS */}
+                                   <div className="relative group w-full m-6 lg:w-1/2">
+                                        <div className="absolute inset-0 bg-[var(--accent-primary)] blur-[100px] opacity-10 rounded-full scale-75"></div>
+                                        <div className="relative p-8 rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl">
+                                             <div className="flex items-center gap-3 mb-8">
+                                                  <div className="w-2 h-8 bg-[var(--accent-secondary)] rounded-full"></div>
+                                                  <h3 className="text-2xl font-black tracking-tighter uppercase text-text-primary">
+                                                       Typical Results
+                                                  </h3>
+                                             </div>
+               
+                                             <div className="space-y-6">
+                                                  {[
+                                                       { label: "5–10x Return on Ad Spend", desc: "Maximized ROI through optimized automation & targeting" },
+                                                       { label: "40–60% Higher WhatsApp Conversions", desc: "Improved engagement with automated messaging flows" },
+                                                       { label: "20–30% Increase in Repeat Customers", desc: "Retention strategies powered by smart campaigns" },
+                                                       { label: "2–3x Organic Reach Growth", desc: "Expanded visibility with AI-driven marketing systems" }
+                                                  ].map((result, idx) => (
+                                                       <div
+                                                            key={idx}
+                                                            className="flex items-start gap-4 p-4 rounded-xl hover:bg-[var(--bg-subtle)] transition-colors border border-transparent hover:border-[var(--border-subtle)]"
+                                                       >
+                                                            <div className="mt-1 bg-[var(--accent-secondary)]/10 text-[var(--accent-secondary)] p-1 rounded-full">
+                                                                 <CheckCircle2 size={20} />
+                                                            </div>
+                                                            <div>
+                                                                 <h4 className="font-bold text-[var(--text-primary)] text-lg leading-tight">
+                                                                      {result.label}
+                                                                 </h4>
+                                                                 <p className="text-sm text-[var(--text-muted)] mt-1">
+                                                                      {result.desc}
+                                                                 </p>
+                                                            </div>
+                                                       </div>
+                                                  ))}
+                                             </div>
+               
+                                            
                                         </div>
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             🤖 <span className="font-medium">Automation Trigger:</span> 124 repetitive tasks completed automatically today.
-                                        </div>
-
-                                        <div className="bg-border-subtle p-4 rounded-2xl">
-                                             🔎 <span className="font-medium">Customer Insights:</span> 32 high-intent leads identified using behavior scoring.
-                                        </div>
-
-                                        <div className="bg-accent/90 text-text-primary p-4 rounded-2xl">
-                                             ⚡ System Status: All AI models running at 99.9% efficiency.
-                                        </div>
-
                                    </div>
-                              </div> */}
-                         {/* </div> */}
-
-                    </div>
-               </section>
+                              </section>
 
                {/* --- PRICING --- */}
                <section className="py-20 px-page-x max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                         <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">Simple, <span className="text-accent">Transparent Pricing</span></h2>
-                         <p className="text-text-muted">Choose the plan that fits your business scale.</p>
+                         <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">
+                              Social Media <span className="text-accent">Management Plans</span>
+                         </h2>
+                         <p className="text-text-muted">
+                              Scalable plans designed to grow your brand across platforms.
+                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                         {/* Starter */}
+                         {/* Social Starter */}
                          <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Starter</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Social Starter</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$30</span>
+                                        <span className="text-3xl font-bold text-text-primary">$200</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$25 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Basic chatbot automation</span>
+                                        <span>2 platforms managed</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Standard broadcast limits</span>
+                                        <span>4 posts per week</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
@@ -293,31 +308,26 @@ const App = () => {
                               </button>
                          </div>
 
-                         {/* Professional */}
+                         {/* Social Professional */}
                          <div className="p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
                               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
                                    MOST POPULAR
                               </div>
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Professional</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Social Professional</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$100</span>
+                                        <span className="text-3xl font-bold text-text-primary">$400</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$75 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Advanced AI Logic</span>
+                                        <span>3 platforms managed</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Full CRM Integration</span>
-                                   </li>
-                                   <li className="flex items-start gap-3 text-ui">
-                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Priority Support</span>
+                                        <span>6 posts per week</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl bg-accent text-text-inverse font-bold hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
@@ -325,28 +335,23 @@ const App = () => {
                               </button>
                          </div>
 
-                         {/* Enterprise */}
+                         {/* Social Elite */}
                          <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Enterprise</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Social Elite</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$250</span>
+                                        <span className="text-3xl font-bold text-text-primary">$700+</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$200 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Unlimited Broadcasts</span>
+                                        <span>All major platforms</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Dedicated Manager</span>
-                                   </li>
-                                   <li className="flex items-start gap-3 text-ui">
-                                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Custom API Solutions</span>
+                                        <span>Daily content creation</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
@@ -359,12 +364,9 @@ const App = () => {
                {/* --- FOOTER CTA --- */}
                <section className="relative py-24 px-6 overflow-hidden mb-20 md:mb-32">
                     {/* Background Ambient Glows */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  rounded-lg -z-10" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-lg -z-10" />
 
-                    <div
-
-                         className="mx-auto max-w-6xl relative group"
-                    >
+                    <div className="mx-auto max-w-6xl relative group">
                          {/* The Card Container */}
                          <div className="relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-text-primary border border-border-default/10 p-8 md:p-20 lg:p-24 shadow-2xl">
 
@@ -376,32 +378,32 @@ const App = () => {
                                    {/* Badge / Top Icon */}
                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-text-primary/10 border border-border-default/20 text-accent text-sm font-medium">
                                         <Zap className="w-4 h-4 fill-current" />
-                                        <span>Limited Availability for Q1</span>
+                                        <span>Limited Slots for New Ad Accounts</span>
                                    </div>
 
-                                   {/* Heading with Fluid Typography */}
+                                   {/* Heading */}
                                    <div className="space-y-4">
-                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
-                                             Ready to transform your <br className="hidden md:block" />
+                                        <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1]">
+                                             Ready to scale your <br className="hidden md:block" />
                                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
-                                                  WhatsApp communication?
+                                                  Social Media & Meta Ads?
                                              </span>
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
-                                             Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
+                                        <p className="mx-auto max-w-2xl text-base md:text-xl text-bg-page/60 leading-relaxed">
+                                             We build high-converting campaigns, optimize daily, and turn your ad spend into predictable revenue growth.
                                         </p>
                                    </div>
 
-                                   {/* Action Buttons */}
+                                   {/* Action Button */}
                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
-                                             See WhatsApp Demo
+                                        <Link
+                                             href="/contact"
+                                             className="group w-full sm:w-auto px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95"
+                                        >
+                                             See Meta Ads Strategy
                                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </Link>
-
-
                                    </div>
-
 
                               </div>
 

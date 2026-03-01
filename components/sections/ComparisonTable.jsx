@@ -89,7 +89,7 @@ export const ComparisonTable = () => {
                {/* Hero Section */}
                <header className="pt-20 pb-12 px-6 text-center mx-auto">
                     
-                    <div className=' flex flex-col md:flex-row justify-center items-center w-full text-left'>
+                    <div className=' flex flex-col lg:flex-row justify-center items-center w-full text-left'>
 
                     <h1 className=" w-full lg:w-1/2 text-3xl md:text-5xl font-bold mb-6 tracking-tight uppercase">
                               <span className=" w-fit block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide uppercase bg-[var(--accent-muted)] text-[var(--accent-primary)] rounded-full">
@@ -97,7 +97,7 @@ export const ComparisonTable = () => {
                               </span>
                               How Meetech Compares to <span className="text-[var(--accent-primary)] block text-4xl md:text-6xl">Other Agencies</span>
                     </h1>
-                         <p className=" w-full lg:w-1/2 text-lg text-[var(--text-body)] leading-relaxed">
+                         <p className=" w-full md:w-max-4xl lg:w-1/2 text-lg text-[var(--text-body)] leading-relaxed">
                          We’ve re-engineered the agency model to provide the speed of a SaaS, the customization of a boutique firm, and the pricing of a partner that wants you to grow.
                     </p>
                     </div>
@@ -105,16 +105,16 @@ export const ComparisonTable = () => {
 
                {/* Desktop Comparison Table */}
                <section className="hidden lg:block mx-auto px-6 mb-24">
-                    <div className="overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--bg-surface)] shadow-xl shadow-blue-500/5">
+                    <div className="overflow-hidden rounded-3xl border border-[var(--border-default)] bg-bg-surface shadow-xl shadow-blue-500/5">
                          <table className="w-full border-collapse">
                               <thead>
-                                   <tr className="bg-[var(--bg-subtle)]">
-                                        <th className="p-8 text-left font-semibold text-[var(--text-muted)] w-1/4">Feature Matrix</th>
+                                   <tr className="bg-bg-subtle">
+                                        <th className="p-8 text-left font-semibold text-text-muted w-1/4">Feature Matrix</th>
                                         <th className="p-8 text-center w-1/4 relative">
-                                             <div className="absolute inset-0 bg-[var(--accent-primary)] opacity-[0.03]"></div>
+                                             <div className="absolute inset-0 bg-accent opacity-[0.03]"></div>
                                              <div className="relative z-10">
-                                                  <div className="text-[var(--accent-primary)] font-bold text-xl mb-1">Meetech</div>
-                                                  <div className="text-xs uppercase tracking-widest text-[var(--accent-primary)] opacity-70">The Winner</div>
+                                                  <div className="text-accent font-bold text-xl mb-1">Meetech</div>
+                                                  <div className="text-xs uppercase tracking-widest text-accent opacity-70">The Winner</div>
                                              </div>
                                         </th>
                                         <th className="p-8 text-center font-semibold text-[var(--text-body)] w-1/4">Local Agency</th>
@@ -126,7 +126,7 @@ export const ComparisonTable = () => {
                                         <tr key={index} className="group hover:bg-[var(--bg-subtle)] transition-colors">
                                              <td className="p-8">
                                                   <div className="flex items-center gap-4">
-                                                       <div className="p-2.5 rounded-xl bg-[var(--bg-card)] text-[var(--accent-primary)] transition-transform group-hover:scale-110">
+                                                       <div className="p-2.5 rounded-xl bg-bg-card text- transition-transform group-hover:scale-110">
                                                             {row.icon}
                                                        </div>
                                                        <div>

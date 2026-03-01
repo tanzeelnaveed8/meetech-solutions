@@ -12,8 +12,9 @@ import {
      ArrowRight,
      Info,
      TrendingUp,
-     Star
+     Star,
 } from 'lucide-react';
+import Link from 'next/link';
 
 export const Pricing = () => {
      const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'yearly'
@@ -195,12 +196,12 @@ export const Pricing = () => {
                                    Save up to 20% with bundles
 
                                    </p>
-                              <button
+                              <Link href='/pricing'
                                    className="w-full flex items-center justify-center sm:w-auto px-3 hover:cursor-pointer hover:text-accent duration-200 rounded-md  text-text-page transition-colors shadow-md border border-accent py-1 text-sm font-light"
                               >
                                         <span className=' mr-2'> View Full Pricing</span>
                                    <ArrowRight size={14} />
-                              </button>
+                              </Link>
                               </div>
                          </div>
 

@@ -7,9 +7,11 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Work", href: "/work" },
-  { label: "Process", href: "/process" },
+  // { label: "Solutions", href: "/solutions" },
+    { label: "WhatsApp Automation", href: "/whatsAppAutomation" },
+
+  // { label: "Work", href: "/work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

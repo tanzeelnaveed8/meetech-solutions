@@ -75,7 +75,7 @@ const App = () => {
                               Cybersecurity & <span className="text-accent">Auditing</span> 
                          </h1>
 
-                         <p className="text-subheading text-accent-secondary font-semibold uppercase tracking-wider text-sm"/>
+                         <p className="text-subheading text-text-secondary font-semibold  uppercase tracking-wider text-sm"/>
                               Protect your business, ensure compliance, prevent breaches
                          <p  className="max-w-2xl text-lg md:text-xl text-text-body leading-relaxed mx-auto">
                                    A data breach costs $1,000,000+ on average. Our 24/7 threat monitoring,
@@ -105,7 +105,7 @@ const App = () => {
                               </Link>
                               <span className="text-text-muted">/</span>
                               <span className="rounded-lg px-3 py-1.5 font-semibold text-accent ">
-                                  AI-Driven Tools
+                                   Cybersecurity & Auditing
                               </span>
                          </nav>
                      
@@ -198,28 +198,37 @@ const App = () => {
 
 
                {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex">
+               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex my-16">
 
                     {/* LEFT SIDE */}
-                    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div className="w-full lg:w-1/2 mx-auto grid p-6 gap-16 items-center relative z-10">
                          <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">
-                                   Powerful <span className="text-accent-secondary block text-6xl">AI-Driven Tools</span>
+                              <h2 className="text-text-primary font-bold leading-tight text-4xl md:text-6xl">
+                                   Who It’s For
                               </h2>
 
                               <p className="text-text-primary/70 text-subheading">
-                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
+                                   Businesses looking to scale faster using automation, WhatsApp marketing, and performance-driven growth strategies.
                               </p>
 
                               <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                                   {targetIndustries.map((tool, i) => (
+                                   {[
+                                        "E-commerce & DTC brands",
+                                        "SaaS & tech startups",
+                                        "Restaurants & food delivery",
+                                        "Salons & beauty brands",
+                                        "Real estate",
+                                        "Professional services"
+                                   ].map((industry, i) => (
                                         <div
                                              key={i}
                                              className="group flex items-center gap-3 p-4 rounded-xl hover:bg-accent/20 border border-border-default hover:border-accent transition-all duration-300"
                                         >
-                                             <div className="text-accent-secondary">{tool.icon}</div>
+                                             <div className="text-accent-secondary">
+                                                  <CheckCircle2 size={20} />
+                                             </div>
                                              <span className="text-accent/85 font-medium group-hover:text-accent">
-                                                  {tool.name}
+                                                  {industry}
                                              </span>
                                         </div>
                                    ))}
@@ -227,99 +236,135 @@ const App = () => {
                          </div>
                     </div>
 
-                    {/* RIGHT SIDE – CybersecurityAnimation ANIMATION */}
-                    <div className="absolute top-0 right-0 h-full w-[50%] pointer-events-none">
-                        <CybersecurityAnimation />
+                    {/* RIGHT SIDE: TYPICAL RESULTS */}
+                    <div className="relative group w-full m-6 lg:w-1/2">
+                         <div className="absolute inset-0 bg-[var(--accent-primary)] blur-[100px] opacity-10 rounded-full scale-75"></div>
+                         <div className="relative p-8 rounded-[2.5rem] bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl">
+                              <div className="flex items-center gap-3 mb-8">
+                                   <div className="w-2 h-8 bg-[var(--accent-secondary)] rounded-full"></div>
+                                   <h3 className="text-2xl font-black tracking-tighter uppercase text-text-primary">
+                                        Typical Results
+                                   </h3>
+                              </div>
+
+                              <div className="space-y-6">
+                                   {[
+                                        { label: "5–10x Return on Ad Spend", desc: "Maximized ROI through optimized automation & targeting" },
+                                        { label: "40–60% Higher WhatsApp Conversions", desc: "Improved engagement with automated messaging flows" },
+                                        { label: "20–30% Increase in Repeat Customers", desc: "Retention strategies powered by smart campaigns" },
+                                        { label: "2–3x Organic Reach Growth", desc: "Expanded visibility with AI-driven marketing systems" }
+                                   ].map((result, idx) => (
+                                        <div
+                                             key={idx}
+                                             className="flex items-start gap-4 p-4 rounded-xl hover:bg-[var(--bg-subtle)] transition-colors border border-transparent hover:border-[var(--border-subtle)]"
+                                        >
+                                             <div className="mt-1 bg-[var(--accent-secondary)]/10 text-[var(--accent-secondary)] p-1 rounded-full">
+                                                  <CheckCircle2 size={20} />
+                                             </div>
+                                             <div>
+                                                  <h4 className="font-bold text-[var(--text-primary)] text-lg leading-tight">
+                                                       {result.label}
+                                                  </h4>
+                                                  <p className="text-sm text-[var(--text-muted)] mt-1">
+                                                       {result.desc}
+                                                  </p>
+                                             </div>
+                                        </div>
+                                   ))}
+                              </div>
+
+                             
+                         </div>
                     </div>
                </section>
-
                {/* --- PRICING --- */}
                <section className="py-20 px-page-x max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                         <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">Simple, <span className="text-accent">Transparent Pricing</span></h2>
-                         <p className="text-text-muted">Choose the plan that fits your business scale.</p>
+                         <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">
+                              Blockchain <span className="text-accent">Security Pricing</span>
+                         </h2>
+                         <p className="text-text-muted">Transparent protection plans for Web3 projects.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                         {/* Starter */}
+                         {/* Security Audit */}
                          <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Starter</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Security Audit</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$30</span>
-                                        <span className="text-text-muted">/month</span>
+                                        <span className="text-3xl font-bold text-text-primary">$200</span>
+                                        <span className="text-text-muted">one-time</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$25 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Basic chatbot automation</span>
+                                        <span>Smart contract vulnerability scan</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Standard broadcast limits</span>
+                                        <span>Detailed risk assessment report</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
-                                   Get Started
+                                   Get Audit
                               </button>
                          </div>
 
-                         {/* Professional */}
+                         {/* 24/7 Monitoring */}
                          <div className="p-8 rounded-3xl border-2 border-accent bg-bg-surface flex flex-col relative shadow-xl scale-105 z-10">
                               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-text-inverse px-4 py-1 rounded-full text-caption font-bold tracking-wide">
                                    MOST POPULAR
                               </div>
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Professional</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">24/7 Monitoring</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$100</span>
+                                        <span className="text-3xl font-bold text-text-primary">$300</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$75 setup fee</p>
+                                   <p className="text-caption text-text-muted mt-2">$150 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Advanced AI Logic</span>
+                                        <span>Real-time blockchain monitoring</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Full CRM Integration</span>
+                                        <span>Instant threat alerts</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Priority Support</span>
+                                        <span>Incident response support</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl bg-accent text-text-inverse font-bold hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                                   Go Professional
+                                   Start Monitoring
                               </button>
                          </div>
 
-                         {/* Enterprise */}
+                         {/* Full Protection */}
                          <div className="p-8 rounded-3xl border border-border-default bg-bg-surface flex flex-col hover:border-accent">
                               <div className="mb-8">
-                                   <h3 className="text-headline font-bold text-text-primary">Enterprise</h3>
+                                   <h3 className="text-headline font-bold text-text-primary">Full Protection</h3>
                                    <div className="mt-4 flex items-baseline gap-1">
-                                        <span className="text-3xl font-bold text-text-primary">$250</span>
+                                        <span className="text-3xl font-bold text-text-primary">$600+</span>
                                         <span className="text-text-muted">/month</span>
                                    </div>
-                                   <p className="text-caption text-text-muted mt-2">+$200 setup fee</p>
+                                   <p className="text-caption text-text-muted mt-2">$300 setup fee</p>
                               </div>
                               <ul className="space-y-4 mb-8 flex-1">
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Unlimited Broadcasts</span>
+                                        <span>Complete smart contract protection</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Dedicated Manager</span>
+                                        <span>Continuous audits & upgrades</span>
                                    </li>
                                    <li className="flex items-start gap-3 text-ui">
                                         <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                                        <span>Custom API Solutions</span>
+                                        <span>Dedicated security engineer</span>
                                    </li>
                               </ul>
                               <button className="w-full py-3 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent-muted transition-colors">
@@ -347,32 +392,34 @@ const App = () => {
                               <div className="relative z-10 flex flex-col items-center text-center space-y-10">
 
                                    {/* Badge / Top Icon */}
+                                   {/* Badge / Top Icon */}
                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-text-primary/10 border border-border-default/20 text-accent text-sm font-medium">
                                         <Zap className="w-4 h-4 fill-current" />
-                                        <span>Limited Availability for Q1</span>
+                                        <span>Enterprise-Grade Security</span>
                                    </div>
 
-                                   {/* Heading with Fluid Typography */}
+                                   {/* Heading */}
                                    <div className="space-y-4">
                                         <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-bg-card leading-[1.1] ">
-                                             Ready to transform your <br className="hidden md:block" />
+                                             Ready to secure your <br className="hidden md:block" />
                                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-bg-card">
-                                                  WhatsApp communication?
+                                                  Digital Infrastructure?
                                              </span>
                                         </h2>
-                                        <p className="mx-auto max-w-2xl text-base` md:text-xl text-bg-page/60 leading-relaxed ">
-                                             Join 50+ high-growth teams dominating their markets with Meetech's managed Chatbots partnerships.
+                                        <p className="mx-auto max-w-2xl text-base md:text-xl text-bg-page/60 leading-relaxed ">
+                                             Protect your business from cyber threats with advanced security audits, real-time monitoring, and enterprise-level protection systems built to keep your data safe.
                                         </p>
                                    </div>
 
-                                   {/* Action Buttons */}
+                                   {/* Action Button */}
                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                                        <Link href="/contact" className="group w-full sm:w-auto  px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
-                                             See WhatsApp Demo
+                                        <Link
+                                             href="/contact"
+                                             className="group w-full sm:w-auto px-4 md:px-8 py-4 bg-accent hover:bg-accent/70 text-text-primary hover:text-text-inverse rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95"
+                                        >
+                                             Get Security Audit
                                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </Link>
-
-                                       
                                    </div>
 
                               
