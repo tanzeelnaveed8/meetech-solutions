@@ -153,7 +153,7 @@ const Page = () => {
                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-muted text-accent font-bold text-[10px] uppercase tracking-widest border border-accent/10">
                               Platform Capabilities
                          </div>
-                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-5xl">
+                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight  text-4xl md:text-6xl">
                               Powerful Key <span className="text-accent">Features</span>
                          </h2>
                          <p className="text-text-muted max-w-xl mx-auto text-subheading">

@@ -30,7 +30,7 @@ export const FAQs = () => {
                answer: "Limited weekend support is available. Weekday responses are the fastest."
           }
      ];
-     
+
      return (
           <div className="min-h-screen bg-bg-page text-text-body font-sans selection:bg-accent selection:text-text-inverse">
 
@@ -44,14 +44,14 @@ export const FAQs = () => {
                               <div className="space-y-4">
                                    <div className="flex items-center gap-2 text-accent font-bold text-[11px] uppercase tracking-widest">
                                         <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                        Meetech SaaS Analytics
+                                        Meetech Solutions Analytics
                                    </div>
-                                   <h2 className="text-5xl  uppercase font-bold text-text-primary leading-[1.1] tracking-tight">
-                                        Frequently asked <span className=' text-7xl block text-accent'>questions</span>
+                                   <h2 className=" text-4xl  md:text-6xl  uppercase font-bold text-text-primary leading-[1.1] tracking-tight">
+                                        Frequently asked <span className=' block text-accent'>questions</span>
                                    </h2>
                               </div>
 
-                              
+
                          </div>
 
                          {/* Right Side: Modern Accordion List */}
@@ -62,8 +62,8 @@ export const FAQs = () => {
                                         <div
                                              key={index}
                                              className={`group rounded-2xl border transition-all duration-500 ease-in-out ${isOpen
-                                                       ? 'bg-bg-surface border-accent/20 shadow-[0_20px_50px_rgba(37,99,235,0.06)]'
-                                                       : 'bg-bg-subtle/50 border-border-subtle hover:border-accent/10 hover:bg-bg-surface'
+                                                  ? 'bg-bg-surface border-accent/20 shadow-[0_20px_50px_rgba(37,99,235,0.06)]'
+                                                  : 'bg-bg-subtle/50 border-border-subtle hover:border-accent/10 hover:bg-bg-surface'
                                                   }`}
                                         >
                                              <button
@@ -74,8 +74,8 @@ export const FAQs = () => {
                                                        {faq.question}
                                                   </span>
                                                   <div className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-500 ${isOpen
-                                                            ? 'bg-accent text-text-inverse rotate-180'
-                                                            : 'bg-white border border-border-default text-text-disabled group-hover:border-accent/30 group-hover:text-accent'
+                                                       ? 'bg-accent text-text-inverse rotate-180'
+                                                       : 'bg-white border border-border-default text-text-disabled group-hover:border-accent/30 group-hover:text-accent'
                                                        }`}>
                                                        <ChevronDown size={18} strokeWidth={2.5} />
                                                   </div>

@@ -54,7 +54,7 @@ const WHY_MEETECH = [
      {
           title: "Expert Team",
           description:
-               "Our team includes Google Ads experts, Meta Ads specialists, LinkedIn professionals, blockchain developers, and cybersecurity engineers — each a master of their craft.",
+               "Our team includes Google Ads experts, Meta Ads specialists, LinkedIn professionals, blockchain developers, and cybersecurity engineers   each a master of their craft.",
           icon: <Users className="w-5 h-5" />,
           stat: "22 Specialists",
           image:

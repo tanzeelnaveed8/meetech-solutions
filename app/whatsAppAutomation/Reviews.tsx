@@ -209,8 +209,8 @@ const Reviews = () => {
                     <div className="inline-flex items-center gap-2 py-1 px-3 mb-6 rounded-full bg-accent-muted text-accent font-semibold text-[12px] border border-accent/10">
                          <Star size={12} fill="currentColor" /> Trusted by 500+ Global Companies
                     </div>
-                    <h1 className="text-4xl font-bold text-text-primary leading-tight mb-4 tracking-tight uppercase">
-                         Real Results From <span className="text-accent block text-5xl md:text-6xl">Real Customers</span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-4 tracking-tight uppercase">
+                         Real Results From <span className="text-accent block ">Real Customers</span>
                     </h1>
                     <p className="text-subheading text-text-muted max-w-2xl text-lg leading-relaxed opacity-80">
                          Scaling operations, reducing costs, and increasing revenue with Meetech's integrated tech suite.

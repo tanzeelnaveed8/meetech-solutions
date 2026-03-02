@@ -145,7 +145,7 @@ export default function MessagesClient({
     []
   );
 
-  // Initial load — for CLIENT: auto-open target or first conversation
+  // Initial load   for CLIENT: auto-open target or first conversation
   useEffect(() => {
     const load = async () => {
       try {
@@ -391,11 +391,10 @@ export default function MessagesClient({
               <button
                 key={conv.id}
                 onClick={() => openConversation(conv)}
-                className={`w-full text-left p-4 hover:bg-white/5 transition-colors duration-150 ${
-                  activeConversation?.id === conv.id
+                className={`w-full text-left p-4 hover:bg-white/5 transition-colors duration-150 ${activeConversation?.id === conv.id
                     ? 'bg-accent/5 border-l-3 border-l-accent'
                     : ''
-                }`}
+                  }`}
               >
                 <div className="flex items-start gap-3">
                   {/* Avatar */}
@@ -517,17 +516,15 @@ export default function MessagesClient({
                   )}
                   <div className={`flex ${isOwn ? 'justify-end' : 'justify-start'}`}>
                     <div
-                      className={`max-w-[78%] rounded-2xl px-4 py-2.5 ${
-                        isOwn
+                      className={`max-w-[78%] rounded-2xl px-4 py-2.5 ${isOwn
                           ? 'bg-accent text-text-inverse rounded-br-md'
                           : 'bg-slate-800/70 border border-white/10 text-text-primary rounded-bl-md'
-                      }`}
+                        }`}
                     >
                       {!isOwn && (
                         <p
-                          className={`text-xs font-semibold mb-1 ${
-                            isOwn ? 'text-text-inverse/80' : 'text-accent'
-                          }`}
+                          className={`text-xs font-semibold mb-1 ${isOwn ? 'text-text-inverse/80' : 'text-accent'
+                            }`}
                         >
                           {msg.sender.name}
                         </p>
@@ -536,26 +533,23 @@ export default function MessagesClient({
                         {msg.content}
                       </p>
                       <div
-                        className={`flex items-center gap-1 mt-1 ${
-                          isOwn ? 'justify-end' : 'justify-start'
-                        }`}
+                        className={`flex items-center gap-1 mt-1 ${isOwn ? 'justify-end' : 'justify-start'
+                          }`}
                       >
                         <span
-                          className={`text-[10px] ${
-                            isOwn
+                          className={`text-[10px] ${isOwn
                               ? 'text-text-inverse/60'
                               : 'text-text-disabled'
-                          }`}
+                            }`}
                         >
                           {formatMessageTime(msg.createdAt)}
                         </span>
                         {isOwn && (
                           <span
-                            className={`${
-                              msg.isRead
+                            className={`${msg.isRead
                                 ? 'text-text-inverse/80'
                                 : 'text-text-inverse/40'
-                            }`}
+                              }`}
                           >
                             {msg.isRead ? (
                               <FiCheckCircle className="w-3 h-3" />
@@ -629,18 +623,17 @@ export default function MessagesClient({
           </div>
         ) : (
           <div className="flex flex-col h-full">
-            {/* Project tabs — if multiple conversations */}
+            {/* Project tabs   if multiple conversations */}
             {conversations.length > 1 && (
               <div className="flex gap-2 px-4 py-2 border-b border-border-default bg-bg-subtle overflow-x-auto">
                 {conversations.map((conv) => (
                   <button
                     key={conv.id}
                     onClick={() => openConversation(conv)}
-                    className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                      activeConversation?.id === conv.id
+                    className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${activeConversation?.id === conv.id
                         ? 'bg-accent text-text-inverse'
                         : 'bg-bg-card text-text-muted border border-border-default hover:border-accent hover:text-accent'
-                    }`}
+                      }`}
                   >
                     {conv.project.name}
                     {conv.unreadCount > 0 && (
@@ -663,7 +656,7 @@ export default function MessagesClient({
 
   // ── ADMIN: original side-by-side layout ──────────────────────────────
   return (
-      <div className="rounded-xl border border-white/15 bg-slate-900/60 shadow-[0_24px_60px_rgba(2,6,23,0.45)] overflow-hidden backdrop-blur-xl" style={{ height: 'calc(100vh - 200px)', minHeight: '500px' }}>
+    <div className="rounded-xl border border-white/15 bg-slate-900/60 shadow-[0_24px_60px_rgba(2,6,23,0.45)] overflow-hidden backdrop-blur-xl" style={{ height: 'calc(100vh - 200px)', minHeight: '500px' }}>
       {/* Desktop: side-by-side */}
       <div className="hidden lg:grid lg:grid-cols-[340px_1fr] h-full">
         <div className="border-r border-border-default overflow-hidden">

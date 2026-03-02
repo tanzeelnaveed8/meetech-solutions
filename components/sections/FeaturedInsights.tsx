@@ -170,9 +170,9 @@ export default function FeaturedInsights() {
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-text-primary uppercase tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-5xl font-black text-text-primary uppercase tracking-tighter leading-none">
               Stories of our<br />
-              <span className="text-accent">Transformations</span>
+              <span className="text-accent ">Transformations</span>
 
             </h2>
 

@@ -15,7 +15,7 @@ export const FAQs = () => {
      const faqs = [
           {
                question: "What's the catch? Why are you so cheap?",
-               answer: "No catch. We use automation, target volume, and operate direct without agency markups. That’s how we keep prices low while maintaining quality. Check our customer reviews — quality is never sacrificed for price."
+               answer: "No catch. We use automation, target volume, and operate direct without agency markups. That’s how we keep prices low while maintaining quality. Check our customer reviews   quality is never sacrificed for price."
           },
           {
                question: "Do you offer annual discounts?",
@@ -54,8 +54,8 @@ export const FAQs = () => {
                                         <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                                         Meetech Solutions Analytics
                                    </div>
-                                   <h2 className="text-5xl  uppercase font-bold text-text-primary leading-[1.1] tracking-tight">
-                                        Frequently asked <span className=' text-7xl block text-accent'>questions</span>
+                                   <h2 className="  text-4xl  md:text-6xl uppercase font-bold text-text-primary leading-[1.1] tracking-tight">
+                                        Frequently asked <span className='block text-accent'>questions</span>
                                    </h2>
                               </div>
 
@@ -67,7 +67,7 @@ export const FAQs = () => {
                                              Can't find the answer to your question? Send us an email and we'll get back to you as soon as possible!
                                         </p>
                                         <Link href="/contact" className="bg-accent w-fit  text-center text-text-inverse hover:bg-accent-hover px-7 py-3.5 rounded-xl font-bold transition-all flex items-center gap-3 text-ui shadow-lg shadow-accent/20 active:scale-95">
-                                             Contact Us 
+                                             Contact Us
                                              {/* <Mail size={18} /> */}
                                         </Link>
                                    </div>
@@ -84,8 +84,8 @@ export const FAQs = () => {
                                         <div
                                              key={index}
                                              className={`group rounded-2xl border transition-all duration-500 ease-in-out ${isOpen
-                                                       ? 'bg-bg-surface border-accent/20 shadow-[0_20px_50px_rgba(37,99,235,0.06)]'
-                                                       : 'bg-bg-subtle/50 border-border-subtle hover:border-accent/10 hover:bg-bg-surface'
+                                                  ? 'bg-bg-surface border-accent/20 shadow-[0_20px_50px_rgba(37,99,235,0.06)]'
+                                                  : 'bg-bg-subtle/50 border-border-subtle hover:border-accent/10 hover:bg-bg-surface'
                                                   }`}
                                         >
                                              <button
@@ -96,8 +96,8 @@ export const FAQs = () => {
                                                        {faq.question}
                                                   </span>
                                                   <div className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-500 ${isOpen
-                                                            ? 'bg-accent text-text-inverse rotate-180'
-                                                            : 'bg-white border border-border-default text-text-disabled group-hover:border-accent/30 group-hover:text-accent'
+                                                       ? 'bg-accent text-text-inverse rotate-180'
+                                                       : 'bg-white border border-border-default text-text-disabled group-hover:border-accent/30 group-hover:text-accent'
                                                        }`}>
                                                        <ChevronDown size={18} strokeWidth={2.5} />
                                                   </div>

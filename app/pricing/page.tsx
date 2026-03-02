@@ -101,7 +101,7 @@ const page = () => {
                               className="text-subheading text-accent font-semibold uppercase tracking-wider text-sm flex items-center justify-center space-x-2"
                          >
                               <DollarSign size={16} />
-                              <span className="ml-1">Transparent Pricing, No Hidden Fees</span>
+                              <span className="md:ml-1">Transparent Pricing, No Hidden Fees</span>
                          </motion.p>
 
                          <motion.h1

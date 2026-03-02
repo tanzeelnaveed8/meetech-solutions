@@ -15,9 +15,9 @@ import MeetechCTA from '@/components/sections/CTA';
 import Project from './work/page';
 import { FloatingCTA } from '@/components/ui/FloatingCTA';
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
-import {Pricing} from "@/components/sections/Pricing"
+import { Pricing } from "@/components/sections/Pricing"
 import Testimonials from "@/components/sections/Testimonials"
-import {FAQs} from "@/components/sections/FAQs"
+import { FAQs } from "@/components/sections/FAQs"
 import { ComparisonTable } from "@/components/sections/ComparisonTable"
 
 
@@ -99,7 +99,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-6xl font-black tracking-tighter leading-[0.92] mb-10 text-text-primary"
+            className="text-4xl md:text-7xl lg:text-6xl font-black tracking-tighter leading-[0.96]  mb-10 text-text-primary"
           >
             Complete Digital
             Transformation for <br />
@@ -115,7 +115,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto max-w-2xl text-lg text-text-body mb-14 leading-relaxed font-light"
           >
-            <span className='font-bold text-text-primary'>Meetech Solutions</span> empowers businesses with WhatsApp Automation, AI Tools, and Blockchain — serving <span className="text-accent font-semibold">1,000+ businesses</span> across 26 countries.
+            <span className='font-bold text-text-primary'>Meetech Solutions</span> empowers businesses with WhatsApp Automation, AI Tools, and Blockchain   serving <span className="text-accent font-semibold">1,000+ businesses</span> across 26 countries.
           </motion.p>
 
           {/* CTA Hub */}
@@ -147,7 +147,7 @@ export default function App() {
         </div>
       </motion.section>
       {/* MODERN STATS HUB */}
-      <div className=" w-full lg:w-3/4 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3  overflow-hidden  py-16">
+      <div className=" w-full lg:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3  overflow-hidden  py-16">
         {stats.map((stat, idx) => (
           <motion.div
             key={stat.label}

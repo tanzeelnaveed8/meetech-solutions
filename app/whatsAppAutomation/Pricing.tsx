@@ -85,7 +85,7 @@ const PricingPlan = () => {
                {/* Hero Section */}
                <section className="pt-20 pb-12 px-page-x max-w-4xl ">
                     <h1 className="text-headline-xl text-4xl uppercase font-bold text-text-primary tracking-tight mb-4">
-                         Transparent Pricing for <span className="text-accent block text-6xl">Measurable Growth</span>
+                         Transparent Pricing for <span className="text-accent block   md:text-6xl">Measurable Growth</span>
                     </h1>
                     <p className="text-subheading text-text-muted max-w-2xl ">
                          Choose the plan that fits your business stage. No hidden fees, just pure automation efficiency.

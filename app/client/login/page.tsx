@@ -88,7 +88,7 @@ export default function ClientLoginPage() {
   return (
     <div className="min-h-screen flex overflow-hidden" style={{ background: '#000' }}>
 
-      {/* Left panel — branding */}
+      {/* Left panel   branding */}
       <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-14 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 pointer-events-none">
@@ -139,7 +139,7 @@ export default function ClientLoginPage() {
         </div>
       </div>
 
-      {/* Right panel — login form */}
+      {/* Right panel   login form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-14 relative">
         {/* Right side background */}
         <div className="absolute inset-0 pointer-events-none">

@@ -7,18 +7,7 @@ const ProcessSection = () => {
      return (
           <div className=" relative z-20  mx-auto max-w-6xl px-4 md:px-8 py-24 mb-20 md:mb-32">
 
-               {/* Narrative Intro */}
-               <section className="text-center mb-16 md:mb-24">
-
-                    <h2 className="text-4xl md:text-6xl font-black  uppercase tracking-tighter mb-6">
-                         How Meetech Works <span className=' block  text-accent'>Simple, Fast, Effective</span>
-                    </h2>
-                    <p className="mx-auto max-w-3xl text-lg text-text-body font-light leading-relaxed">
-                         Every successful project starts with a clear roadmap. Our tried-and-tested 5-step methodology ensures that every detail is covered from discovery to launch.
-                    </p>
-
-
-               </section>
+               
 
                {/* Timeline Component */}
                <ProcessTimeline />

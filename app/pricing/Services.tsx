@@ -119,7 +119,7 @@ const Services = () => {
 
                     {/* Prices */}
                     <motion.div
-                         className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+                         className="grid gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3"
                          initial="hidden"
                          whileInView="visible"
                          viewport={{ once: true }}
@@ -132,7 +132,7 @@ const Services = () => {
                                    // --- ADDED HOVER EFFECT ---
                                    whileHover={{ y: -8 }}
                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                   className=" bg-bg-page/60 border border-border-subtle rounded-[2rem] p-8 flex flex-col hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300"
+                                   className=" bg-bg-page/60 border border-border-subtle rounded-[2rem] p-5 md:p-8 flex flex-col hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300"
                               >
                                    <div className="flex items-center gap-3 mb-8">
                                         <div className="p-3 bg-accent-muted text-accent rounded-xl">

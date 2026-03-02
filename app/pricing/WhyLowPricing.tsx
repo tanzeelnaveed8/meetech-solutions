@@ -57,7 +57,7 @@ export default function WhyLowPricing() {
                               </div>
                               <h2 className="text-headline-lg text-3xl uppercase font-black text-text-primary leading-tight">
                                    Why our pricing <br />
-                                   <span className="text-accent text-7xl">is so low</span>
+                                   <span className="text-accent text-5xl md:text-7xl">is so low</span>
                               </h2>
                          </div>
                          <p className="text-text-muted max-w-sm text-ui leading-relaxed">

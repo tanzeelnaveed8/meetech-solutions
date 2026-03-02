@@ -95,7 +95,7 @@ export const ComparisonTable = () => {
                               <span className=" w-fit block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide uppercase bg-[var(--accent-muted)] text-[var(--accent-primary)] rounded-full">
                                    The Competitive Edge
                               </span>
-                              How Meetech Compares to <span className="text-[var(--accent-primary)] block text-4xl md:text-6xl">Other Agencies</span>
+                              How Meetech Compares to <span className="text-[var(--accent-primary)] block">Other Agencies</span>
                     </h1>
                          <p className=" w-full md:w-max-4xl lg:w-1/2 text-lg text-[var(--text-body)] leading-relaxed">
                          We’ve re-engineered the agency model to provide the speed of a SaaS, the customization of a boutique firm, and the pricing of a partner that wants you to grow.

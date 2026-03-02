@@ -16,7 +16,7 @@ export default function CookiesPage() {
           lastUpdated: "January 27, 2026",
           content: `
       <h4>Cookie Usage</h4>
-      <p>Meetech Development uses cookies to improve your experience on our website. Cookies are small text files stored on your device that help us provide a secure and functional environment.</p>
+      <p>Meetech Solutions uses cookies to improve your experience on our website. Cookies are small text files stored on your device that help us provide a secure and functional environment.</p>
       
       <h4>Technical Necessity</h4>
       <p>We use essential cookies to maintain secure sessions and load-balancing across our global server nodes. These are strictly necessary for the website to function.</p>
@@ -106,7 +106,7 @@ export default function CookiesPage() {
                                    <div className="p-6 rounded-2xl bg-accent p-8 text-text-inverse overflow-hidden relative group">
                                         <div className="relative z-10">
                                              <h4 className="font-bold text-subheading mb-2">Need Help?</h4>
-                                             <p className="text-ui opacity-90 mb-4">Questions about your privacy at Meetech Development?</p>
+                                             <p className="text-ui opacity-90 mb-4">Questions about your privacy at Meetech Solutions?</p>
                                              <Link
                                                   href="/legal/policy" className="px-5 py-2.5 bg-text-inverse text-accent font-semibold rounded-lg text-ui hover:bg-opacity-90 transition-all active:scale-95">
                                                   Read  Privacy Policy

@@ -60,9 +60,9 @@ export function ProcessTimeline() {
       className="border-t border-border-default py-16 md:py-24 px-6"
     >
       <header className="mb-10 md:mb-14">
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
+        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
           How Meetech Works{" "}
-          <span className="block text-accent text-4xl md:text-6xl">
+          <span className="block text-accent">
             Simple, Fast, Effective
           </span>
         </h2>

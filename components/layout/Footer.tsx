@@ -48,7 +48,7 @@ const footerLinks: FooterGroup[] = [
       { name: "Mobile Apps", href: "/services/mobile-apps" },
       { name: "Startup MVPs", href: "/services/startup-mvps" },
       { name: "Custom Software", href: "/services/custom-software" },
-      { name: "WhatsApp Automation", href: "/services/whatsApp-automation" },
+      { name: "WhatsApp Automation", href: "/services/whatsapp-automation" },
       { name: "AI - Driven Tools", href: "/services/ai-tools" },
       { name: "Blockchain Integration", href: "/services/blockchain" },
       { name: "Cybersecurity & Auditing", href: "/services/cybersecurity" },

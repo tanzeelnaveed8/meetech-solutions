@@ -57,7 +57,7 @@ export default function NewClientPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // After code is generated — show success screen
+  // After code is generated   show success screen
   if (generatedCode) {
     return (
       <div className="max-w-2xl">
@@ -96,7 +96,7 @@ export default function NewClientPage() {
             <div className="p-4 rounded-xl border border-border-default bg-bg-subtle text-sm text-text-muted space-y-1">
               <p>✅ Client account created for <strong className="text-text-primary">{formData.email}</strong></p>
               <p>✅ Access code emailed to client</p>
-              <p>📋 Client should enter this code at the login page — no password needed</p>
+              <p>📋 Client should enter this code at the login page   no password needed</p>
             </div>
 
             <div className="flex gap-3">
@@ -130,7 +130,7 @@ export default function NewClientPage() {
           Back to Clients
         </Link>
         <h1 className="text-2xl font-semibold text-text-primary mb-1">Create New Client</h1>
-        <p className="text-sm text-text-muted">An access code will be generated and emailed to the client — no password needed.</p>
+        <p className="text-sm text-text-muted">An access code will be generated and emailed to the client   no password needed.</p>
       </div>
 
       <Card>

@@ -33,9 +33,9 @@ export function WhatWeBuild() {
           </div>
           <h2
             id="what-we-build-heading"
-            className="text-3xl md:text-4xl font-black text-text-primary uppercase tracking-tighter leading-none"
+            className="text-4xl md:text-5xl font-black text-text-primary uppercase tracking-tighter leading-none"
           >
-            Everything You Need for Digital Growth <span className=" text-accent block text-5xl md:text-6xl">5 Powerful Services</span>
+            Everything You Need for Digital Growth <span className=" text-accent block ">5 Powerful Services</span>
           </h2>
           <p className="text-lg text-text-body md:text-xl leading-relaxed">
             Choose individual services or bundle them for maximum impact.          </p>
@@ -59,7 +59,7 @@ export function WhatWeBuild() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-page via-bg-page/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="absolute bottom-0 left-0 p-12 w-full space-y-5">
+                  <div className="absolute bottom-0 left-0 p-6 py-10 md:p-12 w-full space-y-5">
                     <div className="flex gap-2">
                       <span className="text-[10px] uppercase font-bold tracking-widest text-accent bg-accent-muted px-3 py-1 rounded">
                         {accent === "accent" ? "Featured" : "Popular"}

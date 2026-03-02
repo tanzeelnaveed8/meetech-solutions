@@ -16,7 +16,7 @@ export default function TermsPage() {
           lastUpdated: "January 27, 2026",
           content: `
       <h4>Acceptance of Terms</h4>
-      <p>By accessing and using Meetech Development website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+      <p>By accessing and using Meetech Solutions website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
 
       <h4>Services</h4>
       <p>We provide professional software development services including:</p>
@@ -67,7 +67,7 @@ export default function TermsPage() {
       </ul>
 
       <h4>Limitation of Liability</h4>
-      <p>Meetech Development liability is limited to the total amount paid for the specific project. We are not liable for:</p>
+      <p>Meetech Solutions liability is limited to the total amount paid for the specific project. We are not liable for:</p>
       <ul>
         <li>Indirect, incidental, or consequential damages</li>
         <li>Loss of profits, data, or business opportunities</li>

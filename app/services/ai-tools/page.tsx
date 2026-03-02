@@ -151,8 +151,8 @@ const page = () => {
                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-muted text-accent font-bold text-[10px] uppercase tracking-widest border border-accent/10">
                               Platform Capabilities
                          </div>
-                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-5xl">
-                              Powerful Key <span className="text-accent">Features</span>
+                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight   text-4xl md:text-6xl">
+                              Powerful Key <span className="text-accent ">Features</span>
                          </h2>
                          <p className="text-text-muted max-w-xl mx-auto text-subheading">
                               Everything you need to automate your customer communication flow from start to finish.
@@ -205,7 +205,7 @@ const page = () => {
                               </h2>
 
                               <p className="text-text-primary/70 text-subheading">
-                                   Smart automation systems that analyze data, predict outcomes, and execute tasks — so your business runs faster, leaner, and smarter.
+                                   Smart automation systems that analyze data, predict outcomes, and execute tasks   so your business runs faster, leaner, and smarter.
                               </p>
 
                               <div className="grid sm:grid-cols-2 gap-4 pt-4">

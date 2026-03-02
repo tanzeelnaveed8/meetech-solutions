@@ -7,7 +7,7 @@ export const USE_CASES_DATA = {
                built: "WhatsApp Order & Support Automation",
                timeline: "2 Weeks",
                result: "20–30 additional orders per month",
-               tags: ["Chatbot", "Order Management", "Payment Links"],
+               tags: ["Chatbot", "Order Management"],
                imgUrl: "https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&q=80&w=800",
                description:
                     "Automated WhatsApp ordering system that reduced response time from 2 hours to 30 seconds, saved 4 hours/day for staff, and increased monthly revenue by AED 300K–450K with a 2-day payback period."
@@ -19,7 +19,7 @@ export const USE_CASES_DATA = {
                built: "WhatsApp Appointment Automation",
                timeline: "2 Weeks",
                result: "No-shows reduced from 20% to 5%",
-               tags: ["Booking System", "Reminders", "Calendar Sync"],
+               tags: ["Booking System", "Reminders"],
                imgUrl: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800",
                description:
                     "Automated appointment booking with reminders that added 25+ new bookings per month and increased monthly revenue by AED 150K–200K with a 3-day payback period."
@@ -31,7 +31,7 @@ export const USE_CASES_DATA = {
                built: "WhatsApp Sales & Conversion Automation",
                timeline: "3 Weeks",
                result: "15–20% increase in conversions",
-               tags: ["Chat Automation", "Customer Support", "Payments"],
+               tags: ["Chat Automation", "Customer Support"],
                imgUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
                description:
                     "Automated customer inquiries and payment flow reduced cart abandonment, increased repeat customers by 50%, boosted average order value by AED 200, and generated AED 250K–400K additional monthly revenue with a 2-day payback period."

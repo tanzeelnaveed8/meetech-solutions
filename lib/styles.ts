@@ -1,5 +1,5 @@
 /**
- * Button className patterns following MEETECH Development constitution
+ * Button className patterns following MEETECH Solutions constitution
  * Reusable button styles for consistent UI across all pages
  */
 

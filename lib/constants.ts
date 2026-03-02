@@ -1,6 +1,6 @@
 /**
  * Animation constants for consistent motion across the application
- * Following MEETECH Development constitution principles
+ * Following MEETECH Solutions constitution principles
  */
 
 /**

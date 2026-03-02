@@ -1,5 +1,5 @@
 /**
- * Process step icons for the 5-step Meetech Development methodology
+ * Process step icons for the 5-step Meetech Solutions methodology
  * Inline SVG components for optimal performance and styling flexibility
  */
 

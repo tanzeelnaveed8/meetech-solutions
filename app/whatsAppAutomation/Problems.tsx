@@ -254,7 +254,7 @@ const steps = [
                                          </div>
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4 reveal transition-all duration-700 opacity-0 -ml-10 md:ml-0 translate-x-[20px]">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 reveal transition-all duration-700 opacity-0 -ml-10 md:ml-0 translate-x-[20px]">
                                          <div className="rounded-3xl bg-bg-card/50  p-8 backdrop-blur-sm border border-accent/40 text-center">
                                               <div className="text-headline-xl font-bold text-accent-secondary mb-1">80%</div>
                                               <div className="text-caption uppercase tracking-widest text-text-disabled">Auto-Answered</div>

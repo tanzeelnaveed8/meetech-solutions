@@ -154,7 +154,7 @@ const App = () => {
                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-muted text-accent font-bold text-[10px] uppercase tracking-widest border border-accent/10">
                               Platform Capabilities
                          </div>
-                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-5xl">
+                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight  text-4xl md:text-6xl">
                               Powerful Key <span className="text-accent">Features</span>
                          </h2>
                          <p className="text-text-muted max-w-xl mx-auto text-subheading">
@@ -198,7 +198,7 @@ const App = () => {
 
 
                {/* --- WHO IT'S FOR --- */}
-               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex my-16">
+               <section className="py-20 px-page-x bg-accent-muted/60 text-text-inverse overflow-hidden relative flex flex-col md:flex-row my-16">
 
                     {/* LEFT SIDE */}
                     <div className="w-full lg:w-1/2 mx-auto grid p-6 gap-16 items-center relative z-10">
@@ -281,7 +281,7 @@ const App = () => {
                <section className="py-20 px-page-x max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                          <h2 className="text-headline-lg font-bold text-text-primary mb-4 text-5xl">
-                              Blockchain <span className="text-accent">Security Pricing</span>
+                              Cyber <span className="text-accent">Security Pricing</span>
                          </h2>
                          <p className="text-text-muted">Transparent protection plans for Web3 projects.</p>
                     </div>

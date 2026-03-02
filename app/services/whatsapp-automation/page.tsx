@@ -163,7 +163,7 @@ const App = () => {
                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-muted text-accent font-bold text-[10px] uppercase tracking-widest border border-accent/10">
                               Platform Capabilities
                          </div>
-                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-5xl">
+                         <h2 className="text-headline-lg font-bold text-text-primary tracking-tight text-4xl md:text-6xl">
                               Powerful Key <span className="text-accent">Features</span>
                          </h2>
                          <p className="text-text-muted max-w-xl mx-auto text-subheading">
@@ -214,7 +214,7 @@ const App = () => {
 
                     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                          <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl">Tailored Solutions for  <span className="text-accent-secondary block text-6xl">Every Industry</span></h2>
+                              <h2 className="text-text-primary font-bold leading-tight text-4xl md:text-5xl">Tailored Solutions for  <span className="text-accent-secondary block">Every Industry</span></h2>
                               <p className="text-text-primary/70 text-subheading">We build bespoke automation logic that understands the specific needs of your business niche.</p>
 
                               <div className="grid sm:grid-cols-2 gap-4 pt-4">
@@ -232,7 +232,7 @@ const App = () => {
 
 
                               <div className="relative rounded-3xl overflow-hidden bg-[var(--bg-surface)] p-2 shadow-2xl border border-[var(--border-default)]">
-                                   <div className="bg-[var(--bg-subtle)] rounded-2xl p-8 text-[var(--text-body)] min-h-[400px]">
+                                   <div className="bg-[var(--bg-subtle)] rounded-2xl p-3 md:p-8 text-[var(--text-body)] min-h-[400px]">
                                         {/* Header */}
                                         <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--border-subtle)]">
                                              <div className="w-10 h-10 rounded-full bg-[var(--accent-primary)] flex items-center justify-center text-white">

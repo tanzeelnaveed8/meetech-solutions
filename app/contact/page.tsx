@@ -129,7 +129,7 @@ export default function ContactPage() {
                 className="mb-10"
               >
                 <span className="text-accent font-bold tracking-widest uppercase text-xs">Reach Out</span>
-                <h2 className="text-6xl font-black text-text-primary mt-2">Get in Touch</h2>
+                <h2 className=" text-4xl md:text-6xl font-black text-text-primary mt-2">Get in Touch</h2>
               </motion.div>
 
               <div className="space-y-4">
@@ -142,21 +142,21 @@ export default function ContactPage() {
                     transition={{ delay: idx * 0.1, type: "spring", stiffness: 100 }}
                     // Enhanced hover: scale, shadow, and lift
                     whileHover={{ x: 10, scale: 1.02 }}
-                    className="flex items-center justify-between p-6 rounded-3xl border border-border-subtle bg-bg-surface shadow-sm hover:shadow-xl hover:border-accent/30 group transition-all duration-300"
+                    className="flex items-center justify-between p-3 md:p-6 rounded-3xl border border-border-subtle bg-bg-surface shadow-sm hover:shadow-xl hover:border-accent/30 group transition-all duration-300"
                   >
-                    <div className="flex items-center gap-5">
-                      <div className={`p-4 rounded-2xl ${method.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="flex items-center gap-3 md:gap-5">
+                      <div className={` p-2 md:p-4 rounded-2xl ${method.color} group-hover:scale-110 transition-transform duration-300`}>
                         {method.icon}
                       </div>
                       <div>
                         <p className="text-xs font-bold text-text-muted uppercase tracking-widest">{method.label}</p>
-                        <h4 className="text-lg font-bold text-text-primary">{method.value}</h4>
+                        <h4 className=" text-sm md:text-lg font-bold text-text-primary">{method.value}</h4>
                         <p className="text-[11px] text-success font-medium mt-1 flex items-center gap-1.5 opacity-80">
                           <Clock className="w-3 h-3" /> {method.note}
                         </p>
                       </div>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-bg-subtle flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="hidden md:inline-flex w-10 h-10 rounded-full bg-bg-subtle  items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <ArrowUpRight className="w-4 h-4 text-accent" />
                     </div>
                   </motion.a>
@@ -169,7 +169,7 @@ export default function ContactPage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                className="p-10 rounded-[2rem] border border-border-subtle bg-bg-surface relative group overflow-hidden"
+                className=" p-5 md:p-10 rounded-[2rem] border border-border-subtle bg-bg-surface relative group overflow-hidden"
               >
                 {/* Subtle Decorative Background Blob */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors" />

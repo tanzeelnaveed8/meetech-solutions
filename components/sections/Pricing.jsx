@@ -92,8 +92,8 @@ export const Pricing = () => {
 
                     <div className="max-w-4xl">
                         
-                         <h1 className="text-headline-xl  text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6 uppercase">
-                              Simple, Transparent <span className=' block text-6xl text-accent'>Pricing</span>
+                         <h1 className="text-headline-xl  text-4xl md:text-6xl font-bold text-text-primary leading-tight tracking-tight mb-6 uppercase">
+                              Simple,<br /> Transparent <span className=' block text-accent'>Pricing</span>
                          </h1>
                          <p className="text-lg text-text-muted max-w-2xl  mb-10">
                               No hidden fees. No long-term contracts. Cancel anytime. <br className="hidden md:block" />

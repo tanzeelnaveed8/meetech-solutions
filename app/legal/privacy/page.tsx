@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           lastUpdated: "January 27, 2026",
           content: `
       <h4>Introduction</h4>
-      <p>Meetech Development ("we", "our", "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our website and services.</p>
+      <p>Meetech Solutions ("we", "our", "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our website and services.</p>
 
       <h4>Data Collection</h4>
       <p>We collect the following information when you use our contact form:</p>

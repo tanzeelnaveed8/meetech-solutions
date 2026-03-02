@@ -79,8 +79,8 @@ const Testimonials = () => {
                     <div className="inline-flex items-center gap-2 py-1 px-3 mb-6 rounded-full bg-accent-muted text-accent font-semibold text-[12px] border border-accent/10">
                          <Star size={12} fill="currentColor" /> Trusted by 500+ Global Companies
                     </div>
-                    <h1 className="text-4xl font-bold text-text-primary leading-tight mb-4 tracking-tight uppercase">
-                         Real Results From <span className="text-accent block text-5xl md:text-6xl">Real Customers</span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-4 tracking-tight uppercase">
+                         Real Results From <span className="text-accent block">Real Customers</span>
                     </h1>
                     <p className="text-subheading text-text-muted max-w-2xl text-lg leading-relaxed opacity-80">
                          Scaling operations, reducing costs, and increasing revenue with Meetech's integrated tech suite.
@@ -139,11 +139,11 @@ const Testimonials = () => {
 
                                    {/* Quote & Metrics Column */}
                                    <div className=" w-full lg:w-2/3 flex flex-col justify-between">
-                                        <p className="text-headline font-medium italic text-text-primary leading-relaxed mb-8">
+                                        <p className="text-headline text-sm md:text-base font-medium italic text-text-primary   leading-relaxed mb-3 md:mb-8">
                                              "{t.quote}"
                                         </p>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 bg-bg-card rounded-2xl border border-accent/5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4  p-3 md:p-5 bg-bg-card rounded-2xl border border-accent/5">
                                              {t.metrics.map((m, i) => (
                                                   <div key={i} className="flex flex-col gap-1">
                                                        <div className="flex items-center gap-2 text-accent-secondary">

@@ -13,7 +13,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Meetech Development",
+  title: "Meetech Solutions",
   description: "Technology company",
   icons: {
     icon: "/iconlight.png",
