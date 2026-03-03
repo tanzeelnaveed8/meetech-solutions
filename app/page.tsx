@@ -99,12 +99,12 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-7xl lg:text-6xl font-black tracking-tighter leading-[0.96]  mb-10 text-text-primary"
+            className="text-4xl md:text-7xl font-black tracking-tighter leading-[0.96]  mb-10 text-text-primary"
           >
             Complete Digital
-            Transformation for <br />
-            <span className="text-accent bg-clip-text lg:text-8xl">
-              Your Business
+            Transformation <br />
+            <span className="text-accent bg-clip-text">
+             for Your Business
             </span>
           </motion.h1>
 
@@ -127,7 +127,7 @@ export default function App() {
           >
             <Link
               href="/services"
-              className="group relative px-10 py-5 bg-accent text-white font-bold rounded-xl overflow-hidden transition-all hover:bg-accent-hover hover:shadow-[0_0_25px_-5px_rgba(37,99,235,0.4)] active:scale-95 inline-flex items-center justify-center w-full sm:w-auto"
+              className="group w-2/3 relative px-10 py-5 bg-accent text-white font-bold rounded-xl overflow-hidden transition-all hover:bg-accent-hover hover:shadow-[0_0_25px_-5px_rgba(37,99,235,0.4)] active:scale-95 inline-flex items-center justify-center sm:w-auto"
             >
               <span className="relative flex items-center gap-2">
                 Start Free Trial <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -136,7 +136,7 @@ export default function App() {
 
             <Link
               href="/contact"
-              className="px-10 py-5 bg-transparent border-2 border-border-strong hover:bg-bg-subtle hover:border-accent text-text-primary font-bold rounded-xl transition-all active:scale-95 inline-flex items-center justify-center w-full sm:w-auto"
+              className="px-10 w-2/3  py-5 bg-transparent border-2 border-border-strong hover:bg-bg-subtle hover:border-accent text-text-primary font-bold rounded-xl transition-all active:scale-95 inline-flex items-center justify-center sm:w-auto"
             >
               Schedule Demo
             </Link>

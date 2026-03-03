@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
               />
             </Link>
 
-            <p className="text-text-muted text-sm leading-relaxed max-w-sm">
+            <p className="text-text-muted text-sm leading-relaxed max-w-sm ">
               <span className=" font-bold text-text-primary text-lg">Meetech Solutions </span>
               complete digital transformation for global businesses. Operating in 26
               countries with proven solutions for WhatsApp automation, AI tools, blockchain, cybersecurity,
@@ -166,7 +166,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {footerLinks.map((group) => (
               <div key={group.title} className="space-y-5 ">
                 <h4 className="text-text-primary text-sm font-bold uppercase tracking-wider">

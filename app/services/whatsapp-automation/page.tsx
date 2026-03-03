@@ -214,7 +214,7 @@ const App = () => {
 
                     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                          <div className="space-y-6">
-                              <h2 className="text-text-primary font-bold leading-tight text-4xl md:text-5xl">Tailored Solutions for  <span className="text-accent-secondary block">Every Industry</span></h2>
+                              <h2 className="text-text-primary font-bold leading-tight text-4xl md:text-5xl uppercase">Tailored Solutions for  <span className="text-accent-secondary block">Every Industry</span></h2>
                               <p className="text-text-primary/70 text-subheading">We build bespoke automation logic that understands the specific needs of your business niche.</p>
 
                               <div className="grid sm:grid-cols-2 gap-4 pt-4">
