@@ -12,6 +12,8 @@ import {
   CheckCircle2,
   ChevronRight,
   ChevronDown,
+  FolderKanban,
+  CreditCard,
   LogOut
 } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
@@ -95,7 +97,7 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
       </div>
 
       {/* Logo */}
-      <div
+      {/* <div
         style={{
           transform: phase === 'enter' ? 'scale(0.6) translateY(20px)' : 'scale(1) translateY(0)',
           opacity: phase === 'enter' ? 0 : 1,
@@ -103,7 +105,7 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
         }}
         className="mb-8 relative"
       >
-        {/* Glow behind logo */}
+        {/* Glow behind logo 
         <div
           className="absolute inset-0 rounded-full blur-3xl"
           style={{
@@ -119,8 +121,10 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
           className="relative z-10 h-24 w-auto"
           priority
         />
+      </div> */}
+      <div className="mb-8">
+        <Image src="/icon.png" alt="Meetech" width={120} height={120} className="h-16 w-auto" />
       </div>
-
       {/* Text block */}
       <div
         style={{
@@ -188,16 +192,15 @@ type GlobalNavItemProps = {
 
 const GlobalNavItem = ({ icon: Icon, active, label, onClick }: GlobalNavItemProps) => {
   return (
-    <button onClick={onClick} type="button" title={label}>
+    <button onClick={onClick} type="button" className="w-full">
       <div
-        className={`relative group p-3 rounded-2xl transition-all duration-300 ${
-          active
-            ? "text-blue-300 border border-blue-400/20 bg-transparent"
-            : "text-text-disabled hover:text-text-primary hover:bg-white/10 border border-transparent hover:border-white/10"
-        }`}
+        className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl transition-all duration-300 ${active
+          ? "text-text-primary border border-accent/90 bg-accent/90"
+          : "text-text-disabled hover:text-text-primary hover:bg-accent/10 border border-transparent hover:border-accent/10"
+          }`}
       >
-        <Icon size={22} />
-        <span className="absolute left-14 text-text-primary bg-bg-surface border border-border-default text-xs px-2 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
+        <Icon size={20} />
+        <span className="text-sm font-medium whitespace-nowrap">
           {label}
         </span>
       </div>
@@ -233,18 +236,21 @@ export default function App({ children }: { children: React.ReactNode; user?: { 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const modal = searchParams.get('modal');
 
-  const openDashboardModal = (type: 'booking' | 'messages' | 'profile') => {
-    router.push(`/client/dashboard?modal=${type}`);
-  };
 
-  const closeDashboardModal = () => {
-    router.push('/client/dashboard');
-  };
+  // const searchParams = useSearchParams();
+  // const modal = searchParams.get('modal');
 
-  const isDashboard = pathname === '/client/dashboard';
+  // const openDashboardModal = (type: 'booking' | 'messages' | 'profile' | 'projects') => {
+  //   router.push(`/client/dashboard?modal=${type}`);
+  // };
+
+  // const closeDashboardModal = () => {
+  //   router.push('/client/dashboard');
+  // };
+
+  // const isDashboard = pathname === '/client/dashboard';
+  const isActive = (path: string) => pathname === path;
 
   const handleSignOut = async () => {
     if (isSigningOut) return;
@@ -280,12 +286,12 @@ export default function App({ children }: { children: React.ReactNode; user?: { 
             <Image src="/icon.png" alt="Meetech" width={96} height={28} className="h-7 w-auto light-logo" />
             <Image src="/iconlight.png" alt="Meetech" width={96} height={28} className="h-7 w-auto dark-logo" />
           </button>
-          <span className="text-[11px] uppercase tracking-[0.2em] text-blue-300/90">Always Dark</span>
+          <span className="text-[11px] uppercase tracking-[0.2em] text-blue-300/90">Client Portal</span>
         </header>
 
         {/* 1. GLOBAL NAVIGATION (DARK SIDEBAR) */}
-        <aside className="hidden lg:flex w-20 bg-slate-950/65 backdrop-blur-2xl flex-col items-center py-6 border-r border-white/10 shrink-0 z-20 shadow-[16px_0_40px_rgba(2,6,23,0.45)]">
-          <div className="relative mb-10">
+        {/* <aside className="hidden lg:flex w-64 bg-slate-950/65 backdrop-blur-2xl flex-col py-6 px-4 border-r border-white/10 shrink-0 z-20 shadow-[16px_0_40px_rgba(2,6,23,0.45)]">
+          <div className="relative mb-8">
             <Image
               src="/icon.png"
               alt="Meetech"
@@ -302,282 +308,209 @@ export default function App({ children }: { children: React.ReactNode; user?: { 
             />
           </div>
 
-          <nav className="flex flex-col gap-4 flex-1">
+          <nav className="flex flex-col gap-3 flex-1">
             <GlobalNavItem
               icon={LayoutDashboard}
-              label="My Projects"
-              active={isDashboard && !modal}
+              label="Dashboard"
+              active={isActive('/client/dashboard')}
               onClick={() => router.push('/client/dashboard')}
             />
             <GlobalNavItem
               icon={CalendarPlus}
               label="Book Your Meeting"
-              active={isDashboard && modal === 'booking'}
-              onClick={() => openDashboardModal('booking')}
+              active={isActive('/client/booking')}
+              onClick={() => router.push('/client/book-meeting')}            />
+            <GlobalNavItem
+              icon={MessageSquare}
+              label="Messages"
+              active={isActive('/client/messages')}
+              onClick={() => router.push('/client/messages')}            />
+
+            <GlobalNavItem
+              icon={FolderKanban}
+              label="My Projects"
+              active={isActive('/client/projects')}
+              onClick={() => router.push('/client/projects')} />
+
+            <GlobalNavItem
+              icon={CreditCard}
+              label="Payments"
+              active={isActive('/client/payments')}
+              onClick={() => router.push('/client/payments')} />
+
+            <GlobalNavItem
+              icon={UserCircle}
+              label="My Profile"
+              active={isActive('/client/profile')}
+              onClick={() => router.push('/client/profile')} />
+           
+          
+          </nav>
+
+          <div className="flex flex-col gap-4 mt-auto">
+            {/* <button
+              className="p-3 flex  rounded-xl text-blue-300/90 bg-blue-500/10 border border-blue-400/20"
+              title="Dark mode is locked"
+            >
+              <div className="h-[22px] w-[22px] rounded-full bg-blue-400/80 shadow-[0_0_20px_rgba(59,130,246,0.7)]" />
+            </button> */}
+        {/* 1. GLOBAL NAVIGATION – Enhanced minimalist sidebar */}
+        <aside className="hidden lg:flex w-64 flex-col bg-bg-surface border-r border-border-default shrink-0 z-20">
+          {/* Logo – cleaner placement */}
+          <div className="flex  gap-2 items-center px-4 pt-8 pb-6">
+            <Image
+              src="/icon.png"
+              alt="Meetech"
+              width={140}
+              height={40}
+              className="h-8 w-auto"
+              priority
+            />
+            <span className=" text-2xl  font-semibold text-accent">Meetech</span>
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 px-3 space-y-1">
+            <GlobalNavItem
+              icon={LayoutDashboard}
+              label="Dashboard"
+              active={isActive('/client/dashboard')}
+              onClick={() => router.push('/client/dashboard')}
+            />
+            <GlobalNavItem
+              icon={CalendarPlus}
+              label="Book Your Meeting"
+              active={isActive('/client/booking')}
+              onClick={() => router.push('/client/book-meeting')}
             />
             <GlobalNavItem
               icon={MessageSquare}
               label="Messages"
-              active={isDashboard && modal === 'messages'}
-              onClick={() => openDashboardModal('messages')}
+              active={isActive('/client/messages')}
+              onClick={() => router.push('/client/messages')}
+            />
+            <GlobalNavItem
+              icon={FolderKanban}
+              label="My Projects"
+              active={isActive('/client/projects')}
+              onClick={() => router.push('/client/projects')}
+            />
+            <GlobalNavItem
+              icon={CreditCard}
+              label="Payments"
+              active={isActive('/client/payments')}
+              onClick={() => router.push('/client/payments')}
             />
             <GlobalNavItem
               icon={UserCircle}
               label="My Profile"
-              active={isDashboard && modal === 'profile'}
-              onClick={() => openDashboardModal('profile')}
+              active={isActive('/client/profile')}
+              onClick={() => router.push('/client/profile')}
             />
           </nav>
 
-          <div className="flex flex-col gap-4 mt-auto">
-            <button
-              className="p-3 rounded-xl text-blue-300/90 bg-blue-500/10 border border-blue-400/20"
-              title="Dark mode is locked"
-            >
-              <div className="h-[22px] w-[22px] rounded-full bg-blue-400/80 shadow-[0_0_20px_rgba(59,130,246,0.7)]" />
-            </button>
+          {/* Footer – logout + profile */}
+          <div className="px-3 pb-6 mt-auto space-y-3">
             <button
               onClick={handleSignOut}
               disabled={isSigningOut}
-              title="Sign Out"
-              className="p-3 rounded-xl text-text-disabled hover:text-red-400 hover:bg-red-500/10 transition-all disabled:opacity-50"
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-text-muted hover:text-red-400 hover:bg-red-500/10 transition-all disabled:opacity-50 text-sm font-medium"
             >
-              <LogOut size={22} />
+              <LogOut size={18} />
+              <span>Log out</span>
             </button>
+
             <button
-              type="button"
-              onClick={() => openDashboardModal('profile')}
-              title="My Profile"
+              onClick={() => router.push('/client/profile')}
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl bg-accent/5 hover:bg-accent/10 transition-colors border border-accent/10"
             >
-              <div className="relative w-10 h-10 rounded-full overflow-hidden mb-4 bg-accent text-text-inverse flex items-center justify-center text-lg font-bold">
+              {/* Avatar with fallback */}
+              <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-xs font-bold text-text-inverse shrink-0">
                 {session?.user.name
-                  ?.split(" ")
+                  ?.split(' ')
                   .filter(Boolean)
-                  .map((n, i, arr) => (i === 0 || i === arr.length - 1 ? n[0] : ""))
-                  .join("")
-                  .toUpperCase()}
+                  .map((n) => n[0])
+                  .join('')
+                  .toUpperCase()
+                  .slice(0, 2) || 'U'}
+              </div>
+              <div className="flex flex-col items-start overflow-hidden text-left">
+                <span className="text-sm font-semibold text-text-primary truncate w-full">
+                  {session?.user.name || 'User Name'}
+                </span>
+                <span className="text-xs text-text-muted truncate w-full">
+                  {session?.user.email || 'user@email.com'}
+                </span>
               </div>
             </button>
-          </div>
-        </aside>
-
-        {/* 2. CONTEXTUAL SIDEBAR (VISIBLE ONLY ON DASHBOARD) */}
-        <aside
-          className={`w-80 bg-slate-950/45 backdrop-blur-xl border-r border-white/10 overflow-y-auto hidden xl:block transition-all duration-300 ${
-            pathname !== "/client/dashboard" ? "opacity-50 pointer-events-none grayscale" : ""
-          }`}
-        >
-          <div className="p-6">
-            <button className="flex items-center gap-2 text-text-disabled text-sm hover:text-text-muted mb-8">
-              <ChevronRight size={16} className="rotate-180" />
-              <span>Projects list</span>
-            </button>
-
-            <div className="mb-8">
-              <div className="relative w-20 h-20 rounded-3xl overflow-hidden mb-4 ring-4 ring-blue-500/20 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-text-inverse text-3xl font-bold shadow-[0_18px_40px_rgba(37,99,235,0.45)]">
-                {session?.user.name
-                  ?.split(" ")
-                  .filter(Boolean)
-                  .map((n, i, arr) => (i === 0 || i === arr.length - 1 ? n[0] : ""))
-                  .join("")
-                  .toUpperCase()}
-              </div>
-              {/* Camera Icon */}
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="relative bottom-10 z-50 -right-12 bg-accent-muted p-2 text-accent rounded-full shadow-md hover:bg-bg-subtle transition"
-              >
-                <FiCamera size={16} />
-              </button>
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                ref={fileInputRef}
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    // Placeholder for profile image upload wiring.
-                    void file;
-                  }
-                }}
-              />
-              <div className="space-y-6">
-                <section>
-                  <h3 className="text-xs font-bold text-text-disabled uppercase tracking-wider flex items-center gap-2 mb-3">
-                    <ChevronDown size={14} /> Client Details
-                  </h3>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-text-disabled">Email</span>
-                      <span className="text-accent font-medium">{session?.user.email}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-text-disabled">Client ID</span>
-                      <span className="text-text-body font-medium">{`MT-${session?.user?.id?.toString().slice(0, 6)}XT`}</span>
-                    </div>
-                  </div>
-                </section>
-
-                <section>
-                  <h3 className="text-xs font-bold text-text-disabled uppercase tracking-wider flex items-center gap-2 mb-3">
-                    <ChevronDown size={14} /> Tags
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-accent-muted text-accent rounded-lg text-xs font-medium border border-accent/10 lowercase">
-                      {session?.user.role}
-                    </span>
-                    <span className="px-3 py-1 bg-bg-subtle text-text-muted rounded-lg text-xs font-medium border border-border-subtle">
-                      Active Contract
-                    </span>
-                  </div>
-                </section>
-              </div>
-            </div>
           </div>
         </aside>
 
         {/* 3. MAIN WORKSPACE */}
         <main className="flex-1 flex flex-col overflow-hidden relative pt-14 lg:pt-0 z-10">
           {/* Content */}
-          <div className="flex-1 p-4 sm:p-6 md:pb-40 lg:p-8 pb-24 lg:pb-8 overflow-y-auto">
+          <div className="flex-1 p-2 md:p-6 md:pb-40 lg:p-8 pb-24 lg:pb-8 overflow-y-auto mb-14 md:mb-0">
             {children}
           </div>
 
-          {/* FLOATING ACTION MENU */}
-          <div className="absolute bottom-24 right-4 sm:right-6 lg:bottom-10 lg:right-10 flex flex-col items-end gap-4 z-50">
-            {isActionMenuOpen && (
-              <>
-                <div
-                  className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
-                  onClick={() => setIsActionMenuOpen(false)}
-                />
-                <div className="w-[calc(100vw-2rem)] max-w-64 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300 bg-slate-900/95 text-text-primary border border-white/10 z-50 backdrop-blur-xl">
-                  <div className="p-4 border-b border-white/10 flex justify-between items-center">
-                    <p className="text-xs font-bold uppercase tracking-widest">Quick Actions</p>
-                    <X
-                      size={14}
-                      className="cursor-pointer hover:text-text-inverse"
-                      style={{ color: "var(--color-text-disabled)" }}
-                      onClick={() => setIsActionMenuOpen(false)}
-                    />
-                  </div>
-                  <div className="py-2">
-                    <div onClick={() => { openDashboardModal('booking'); setIsActionMenuOpen(false); }}>
-                      <ActionMenuItem icon={CalendarPlus} title="Book appointment" description="Request a new slot" />
-                    </div>
-                    <ActionMenuItem icon={FilePlus} title="Upload documents" description="PDF, PNG, JPG supported" />
-                    <ActionMenuItem icon={CheckCircle2} title="Create task" description="Add to your personal list" />
-                    <div onClick={() => { openDashboardModal('messages'); setIsActionMenuOpen(false); }}>
-                      <ActionMenuItem icon={MessageSquare} title="Send Message" description="Ping the support team" />
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            <button
-              onClick={() => setIsActionMenuOpen(!isActionMenuOpen)}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 bg-accent text-text-inverse"
-            >
-              <Plus size={24} style={{ transform: isActionMenuOpen ? "rotate(45deg)" : "rotate(0deg)", transition: 'transform 0.3s' }} />
-            </button>
-          </div>
         </main>
-      </div>
+      </div >
 
       {/* Mobile bottom navigation */}
-      <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 h-16 bg-slate-950/80 backdrop-blur-2xl border-t border-white/10 grid grid-cols-4 px-1 shadow-[0_-10px_30px_rgba(2,6,23,0.65)]">
+      < nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 h-16 bg-slate-950/80 backdrop-blur-2xl border-t border-white/10 grid grid-cols-6 px-1 shadow-[0_-10px_30px_rgba(2,6,23,0.65)]" >
         <button
           type="button"
           onClick={() => router.push('/client/dashboard')}
-          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all ${
-            isDashboard && !modal ? 'bg-blue-600/20 text-blue-200 border border-blue-400/30' : 'text-text-disabled'
-          }`}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all `}
         >
           <LayoutDashboard size={18} />
           Home
         </button>
         <button
           type="button"
-          onClick={() => openDashboardModal('booking')}
-          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all ${
-            isDashboard && modal === 'booking' ? 'bg-blue-600/20 text-blue-200 border border-blue-400/30' : 'text-text-disabled'
-          }`}
+          onClick={() => router.push('/client/book-meeting')}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all`}
         >
           <CalendarPlus size={18} />
           Booking
         </button>
         <button
           type="button"
-          onClick={() => openDashboardModal('messages')}
-          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all ${
-            isDashboard && modal === 'messages' ? 'bg-blue-600/20 text-blue-200 border border-blue-400/30' : 'text-text-disabled'
-          }`}
+          onClick={() => router.push('/client/messages')}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all`}
         >
           <MessageSquare size={18} />
           Messages
         </button>
+
         <button
           type="button"
-          onClick={() => openDashboardModal('profile')}
-          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all ${
-            isDashboard && modal === 'profile' ? 'bg-blue-600/20 text-blue-200 border border-blue-400/30' : 'text-text-disabled'
-          }`}
+          onClick={() => router.push('/client/projects')}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all`}
+        >
+          <FolderKanban size={18} />
+          Projects
+        </button>
+
+        <button
+          type="button"
+          onClick={() => router.push('/client/payments')}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all`}
+        >
+          <CreditCard size={18} />
+          Payments
+        </button>
+
+        <button
+          type="button"
+          onClick={() => router.push('/client/profile')}
+          className={`flex flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-all`}
         >
           <UserCircle size={18} />
           Profile
         </button>
-      </nav>
+      </nav >
 
-      {/* Dashboard Popups */}
-      {isDashboard && modal && (
-        <div className="fixed inset-0 z-[140]">
-          <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
-            onClick={closeDashboardModal}
-          />
-          <div className="relative z-10 flex h-full w-full items-center justify-center p-2 sm:p-5">
-            <div className={`w-full rounded-2xl border border-white/15 bg-slate-950/95 shadow-[0_30px_90px_rgba(0,0,0,0.6)] overflow-hidden backdrop-blur-xl ${
-              modal === 'messages'
-                ? 'h-[96vh] sm:h-[94vh] max-w-[1200px]'
-                : 'h-[94vh] sm:h-[90vh] max-w-[960px]'
-            }`}>
-            <div className="sticky top-0 z-20 flex items-center justify-between px-5 py-3 border-b border-white/10 bg-slate-900/85 backdrop-blur-xl">
-              <h2 className="text-sm sm:text-base font-semibold text-text-primary">
-                {modal === 'booking' && 'Book Your Meeting'}
-                {modal === 'messages' && 'Messages'}
-                {modal === 'profile' && 'My Profile'}
-              </h2>
-              <button
-                onClick={closeDashboardModal}
-                className="p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-bg-subtle transition-colors"
-                aria-label="Close modal"
-              >
-                <X size={18} />
-              </button>
-            </div>
-            <div className={`h-[calc(100%-56px)] overflow-y-auto ${modal === 'messages' ? 'p-0' : 'p-3 sm:p-6'}`}>
-              {modal === 'booking' && (
-                <div className="mx-auto w-full max-w-4xl">
-                  <BookMeetingPage />
-                </div>
-              )}
-              {modal === 'messages' && session?.user?.id && session?.user?.role && (
-                <div className="h-full">
-                  <MessagesClient userId={session.user.id} userRole={session.user.role} />
-                </div>
-              )}
-              {modal === 'profile' && (
-                <div className="mx-auto w-full max-w-5xl">
-                  <ClientProfilePage />
-                </div>
-              )}
-            </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
